@@ -15,25 +15,19 @@ using System.Windows.Shapes;
 namespace h2SygehusnordLoc
 {
     /// <summary>
-    /// Interaction logic for EditDepartment.xaml
+    /// Interaction logic for CreateDepartment.xaml
     /// </summary>
-    public partial class EditDepartment : Window
+    public partial class CreateDepartment : Window
     {
         private databaseContext db = new databaseContext();
         private Department department;
         public event EventHandler closeEvent;
 
-        public EditDepartment(databaseContext db, Department department)
+        public CreateDepartment()
         {
-            this.db = db;
-            this.department = department;
-
+          
             InitializeComponent();
 
-            tbHallID.Text = department.hall_ID.ToString();
-            tbBuildingID.Text = department.building_ID.ToString();
-            tbDepartmentName.Text = department.department_name;
-            dpCreatedAt.Text = department.created_at.ToString();
 
 
         }
@@ -48,10 +42,14 @@ namespace h2SygehusnordLoc
             }
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
+            department.hall_ID = Convert.ToInt32(tbHallID.Text);
+            department.building_ID = Convert.ToInt32(tbBuildingID.Text);
             department.department_name = tbDepartmentName.Text;
             department.created_at = Convert.ToDateTime(dpCreatedAt.Text);
+
+            db.Department.Add(department);
 
             UpdateDB();
 
@@ -64,4 +62,3 @@ namespace h2SygehusnordLoc
         }
     }
 }
-

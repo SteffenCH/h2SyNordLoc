@@ -22,7 +22,7 @@
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Name="btnCreateDepartment" Content="Opret afdeling" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="36"/>
+        <Button Name="btnCreateDepartment" Content="Opret afdeling" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="36" Click="btnCreateDepartment_Click"/>
 
         <TextBox x:Name="tbSearchBox" HorizontalAlignment="Left" Height="36" Margin="126,10,0,0" TextWrapping="Wrap" MaxLines="1" FontSize="24" VerticalAlignment="Top" Width="217" KeyUp="tbSearchBox_KeyUp">
             <TextBox.Style>
