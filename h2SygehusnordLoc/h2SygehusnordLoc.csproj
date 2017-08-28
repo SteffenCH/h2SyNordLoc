@@ -63,6 +63,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Login.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="winDashboard.xaml.cs">
@@ -88,7 +89,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Information.xaml">
-       <SubType>Designer</SubType>
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="winDashboard.xaml">
