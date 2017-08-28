@@ -1,4 +1,4 @@
-﻿<Window x:Class="h2SygehusnordLoc.Oplysninger"
+﻿<Window x:Class="h2SygehusnordLoc.Information"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -20,7 +20,7 @@
             </DataGrid>
         </DockPanel>
         <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="16,172,0,0" VerticalAlignment="Top" Width="386">
-            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" DockPanel.Dock="Right" KeyDown="tbSearch_KeyDown" />
+            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" DockPanel.Dock="Right"/>
             <Label x:Name="lbSearch" Content="Søg:" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Right" Width="52"/>
         </DockPanel>
         <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="173,138,0,0" VerticalAlignment="Top" Width="229">
