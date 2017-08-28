@@ -73,5 +73,10 @@ namespace h2SygehusnordLoc
                 editDepartment.ShowDialog();
             }
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Hide();
+        }
     }
 }

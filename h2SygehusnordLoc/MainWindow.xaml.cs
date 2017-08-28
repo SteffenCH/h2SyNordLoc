@@ -20,6 +20,7 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class MainWindow : Window
     {
+        winDashboard dashboard = new winDashboard();
         public MainWindow()
         {
             InitializeComponent();
@@ -27,7 +28,6 @@ namespace h2SygehusnordLoc
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
         }
 
     }
