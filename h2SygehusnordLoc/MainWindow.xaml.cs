@@ -20,9 +20,14 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class MainWindow : Window
     {
+        DepartmentWindow departmentWindow = new DepartmentWindow();
+
         public MainWindow()
         {
             InitializeComponent();
+
+            departmentWindow.ShowDialog();
+
         }
     }
 }

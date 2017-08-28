@@ -19,11 +19,13 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class EditDepartment : Window
     {
-        public event EventHandler closeEvent;
+        private databaseContext db = new databaseContext();
+        private List<Department> departmentList = new List<Department>();
 
         public EditDepartment(databaseContext db, Department department)
         {
             InitializeComponent();
+
         }
     }
 }
