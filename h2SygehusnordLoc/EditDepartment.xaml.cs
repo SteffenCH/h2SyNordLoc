@@ -26,6 +26,8 @@ namespace h2SygehusnordLoc
         {
             InitializeComponent();
 
+
+
         }
     }
 }
