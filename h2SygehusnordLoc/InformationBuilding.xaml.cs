@@ -16,20 +16,17 @@ using System.Windows.Shapes;
 namespace h2SygehusnordLoc
 {
     /// <summary>
-    /// Interaction logic for Oplysninger.xaml
+    /// Interaction logic for InformationBuilding.xaml
     /// </summary>
-    public partial class Information : Window
+    public partial class InformationBuilding : Window
     {
         private databaseContext db = new databaseContext();
         List<Building> buildingList = new List<Building>();
         public ObservableCollection<Building> Buildings { get; set; }
 
-        public Information()
+        public InformationBuilding()
         {
             InitializeComponent();
-
-            /*buildingList = db.Building.ToList();
-            dataGridBuilding.ItemsSource = buildingList;*/
 
             var query = (from b in db.Building
                          select new
@@ -45,6 +42,11 @@ namespace h2SygehusnordLoc
             foreach (var item in query)
             {
                 dataGridBuilding.Items.Add(item);
+            }
+
+            if (dataGridBuilding.SelectedIndex >= 0)
+            {
+                var d = dataGridBuilding.SelectedItem;
             }
         }
 
@@ -69,34 +71,19 @@ namespace h2SygehusnordLoc
                 {
                     dataGridBuilding.Items.Add(item);
                 }
-                //    var searchValue = tbSearch.Text.Trim();
-                //    var query = (from b in db.Building
-                //                 join c in db.Consumption on b.ID equals c.ID
-                //                 join g in db.Department on c.ID equals g.ID into dt
-                //                 from x in dt.DefaultIfEmpty()
-                //                 where (b.address.StartsWith(searchValue) ||
-                //                 b.city.Contains(searchValue) ||
-                //                 b.zipcode.Contains(searchValue))
-                //                 orderby b.address ascending
-
-                //                 /* Skal i dto */
-                //                 select new
-                //                 {
-                //                     b.ID,
-                //                     b.address,
-                //                     b.city,
-                //                     b.zipcode,
-                //                     b.room_count,
-                //                     b.created_at
-                //                 });
-
-                //    dataGridBuilding.Items.Clear();
-                //    /* Til at få data ud af query */
-                //    foreach (var item in query)
-                //    {
-                //        dataGridBuilding.Items.Add(item);
-                //    }
             }
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            /*try
+            {
+                object item = dataGridBuilding.SelectedItem;
+                databaseContext db = new databaseContext();
+
+                int m = int.Parse((dataGridBuilding.SelectedCells[0].Column.GetCellContent(item) as
+                    TextBox).Text);
+            }*/
         }
     }
 }
