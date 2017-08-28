@@ -1,4 +1,4 @@
-amespace h2SygehusnordLoc
+namespace h2SygehusnordLoc
 {
     using System;
     using System.Collections.Generic;
