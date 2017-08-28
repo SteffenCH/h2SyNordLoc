@@ -43,6 +43,11 @@ namespace h2SygehusnordLoc
             {
                 dataGridBuilding.Items.Add(item);
             }
+
+            if (dataGridBuilding.SelectedIndex >= 0)
+            {
+                var d = dataGridBuilding.SelectedItem;
+            }
         }
 
         private void tbSearch_KeyDown(object sender, KeyEventArgs e)
@@ -67,6 +72,18 @@ namespace h2SygehusnordLoc
                     dataGridBuilding.Items.Add(item);
                 }
             }
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            /*try
+            {
+                object item = dataGridBuilding.SelectedItem;
+                databaseContext db = new databaseContext();
+
+                int m = int.Parse((dataGridBuilding.SelectedCells[0].Column.GetCellContent(item) as
+                    TextBox).Text);
+            }*/
         }
     }
 }

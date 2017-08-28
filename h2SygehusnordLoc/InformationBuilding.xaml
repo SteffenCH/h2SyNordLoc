@@ -23,10 +23,11 @@
             <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" DockPanel.Dock="Right" KeyDown="tbSearch_KeyDown"/>
             <Label x:Name="lbSearch" Content="Søg:" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Right" Width="52"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="173,138,0,0" VerticalAlignment="Top" Width="229">
-            <Button x:Name="btnSave" TabIndex="4" Margin="0, 0, 10, 0" Content="Gem" Height="23" VerticalAlignment="Top" Width="71"/>
-            <Button x:Name="btnReset" TabIndex="5" Margin="0, 0, 10, 0" Content="Nulstil" Height="23" VerticalAlignment="Top" Width="68"/>
-            <Button x:Name="btnDelete" TabIndex="6" Content="Slet" Height="23" VerticalAlignment="Top" Width="69"/>
+        <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="95,138,0,0" VerticalAlignment="Top" Width="307">
+            <Button x:Name="btnSave" TabIndex="4" Margin="0, 0, 10, 0" Content="Gem" Height="23" VerticalAlignment="Top" Width="69" Click="btnSave_Click"/>
+            <Button x:Name="btnAdd" TabIndex="5" Margin="0, 0, 10, 0" Content="Opret" Height="23" VerticalAlignment="Top" Width="69"/>
+            <Button x:Name="btnReset" TabIndex="6" Margin="0, 0, 10, 0" Content="Nulstil" Height="23" VerticalAlignment="Top" Width="69"/>
+            <Button x:Name="btnDelete" TabIndex="7" Content="Slet" Height="23" VerticalAlignment="Top" Width="69"/>
         </DockPanel>
         <DockPanel HorizontalAlignment="Left" Height="27" LastChildFill="False" Margin="10,0,0,0" VerticalAlignment="Top" Width="134">
             <Label x:Name="lblData" Content="Data:" Height="26" VerticalAlignment="Top" Width="133" FontWeight="Bold"/>
