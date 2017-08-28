@@ -21,7 +21,6 @@ namespace h2SygehusnordLoc
         public virtual DbSet<Patient> Patient { get; set; }
         public virtual DbSet<Room> Room { get; set; }
         public virtual DbSet<Security> Security { get; set; }
-        public virtual DbSet<Login> Login { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
