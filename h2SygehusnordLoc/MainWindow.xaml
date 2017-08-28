@@ -5,6 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="404" Width="432">
-    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}"/>
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Label Content="Brugernavn" HorizontalAlignment="Left" Margin="127,75,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="127,112,0,0" VerticalAlignment="Top"/>
+        <PasswordBox x:Name="pwPassword" HorizontalAlignment="Left" Margin="210,112,0,0" VerticalAlignment="Top" Width="158" Height="26"/>
+        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="210,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="158"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="127,159,0,0" VerticalAlignment="Top" Width="158" Height="33"/>
+        <Button x:Name="btnExit" Content="Luk" HorizontalAlignment="Left" Margin="293,159,0,0" VerticalAlignment="Top" Width="75" Height="33" Click="btnExit_Click"/>
+    </Grid>
 </Window>

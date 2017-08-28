@@ -63,9 +63,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Oplysninger.xaml.cs">
-      <DependentUpon>Oplysninger.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Room.cs" />
     <Compile Include="Security.cs" />
     <Page Include="MainWindow.xaml">
