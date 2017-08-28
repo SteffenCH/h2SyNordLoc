@@ -10,30 +10,23 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace h2SygehusnordLoc
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for winDashboard.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class winDashboard : Window
     {
-        DepartmentWindow departmentWindow = new DepartmentWindow();
-
-        public MainWindow()
+        public winDashboard()
         {
             InitializeComponent();
-
-            departmentWindow.ShowDialog();
-
         }
 
-        private void btnExit_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
-
     }
 }
