@@ -6,9 +6,9 @@
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
         Title="Oplysninger om bygninger" Height="424.229" Width="457.268">
-    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,2,-5">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,2,-31">
         <DockPanel Height="147" LastChildFill="False" Margin="16,206,-6,-23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="394">
-            <DataGrid x:Name="dataGridBuilding" Height="128" VerticalAlignment="Top" Width="390" AutoGenerateColumns="False" ItemsSource="{Binding Building}">
+            <DataGrid x:Name="dataGridBuilding" Height="128" VerticalAlignment="Top" Width="390" AutoGenerateColumns="False" ItemsSource="{Binding Building, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectionChanged="dataGridBuilding_SelectionChanged" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="Adresse" Binding="{Binding address}"/>
@@ -26,7 +26,7 @@
         <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="95,138,0,0" VerticalAlignment="Top" Width="307">
             <Button x:Name="btnSave" TabIndex="4" Margin="0, 0, 10, 0" Content="Gem" Height="23" VerticalAlignment="Top" Width="69" Click="btnSave_Click"/>
             <Button x:Name="btnAdd" TabIndex="5" Margin="0, 0, 10, 0" Content="Opret" Height="23" VerticalAlignment="Top" Width="69"/>
-            <Button x:Name="btnReset" TabIndex="6" Margin="0, 0, 10, 0" Content="Nulstil" Height="23" VerticalAlignment="Top" Width="69"/>
+            <Button x:Name="btnReset" TabIndex="6" Margin="0, 0, 10, 0" Content="Nulstil" Height="23" VerticalAlignment="Top" Width="69" Click="btnReset_Click"/>
             <Button x:Name="btnDelete" TabIndex="7" Content="Slet" Height="23" VerticalAlignment="Top" Width="69"/>
         </DockPanel>
         <DockPanel HorizontalAlignment="Left" Height="27" LastChildFill="False" Margin="10,0,0,0" VerticalAlignment="Top" Width="134">
@@ -43,6 +43,9 @@
             <TextBox x:Name="tbZipCode" TabIndex="2" Margin="12, 0, 0, 0" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
             <Label x:Name="lblRoomCount" Margin="10, 0, 0, 0" Content="Rum:" Height="26" VerticalAlignment="Top"/>
             <TextBox x:Name="tbRoomCount" TabIndex="3" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="328,353,0,0" VerticalAlignment="Top" Width="81">
+            <Button x:Name="btnClose" Content="Luk" Height="29" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5" Click="btnClose_Click"/>
         </DockPanel>
     </Grid>
 </Window>

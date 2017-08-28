@@ -20,6 +20,7 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class InformationBuilding : Window
     {
+        private Building building;
         private databaseContext db = new databaseContext();
         List<Building> buildingList = new List<Building>();
         public ObservableCollection<Building> Buildings { get; set; }
@@ -42,11 +43,6 @@ namespace h2SygehusnordLoc
             foreach (var item in query)
             {
                 dataGridBuilding.Items.Add(item);
-            }
-
-            if (dataGridBuilding.SelectedIndex >= 0)
-            {
-                var d = dataGridBuilding.SelectedItem;
             }
         }
 
@@ -84,6 +80,32 @@ namespace h2SygehusnordLoc
                 int m = int.Parse((dataGridBuilding.SelectedCells[0].Column.GetCellContent(item) as
                     TextBox).Text);
             }*/
+        }
+
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            tbAddress.Text = null;
+            tbCity.Text = null;
+            tbZipCode.Text = null;
+            tbRoomCount.Text = null;
+            dataGridBuilding.ItemsSource = null;
+            dataGridBuilding.Items.Clear();
+        }
+
+        private void dataGridBuilding_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var dg = (DataGrid)sender;
+            
+            if (dataGridBuilding.SelectedIndex >= 0)
+            {
+                
+                //tbAddress.SelectedText = building.address;
+            }
         }
     }
 }
