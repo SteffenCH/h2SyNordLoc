@@ -75,8 +75,6 @@
     <Compile Include="EditDepartment.xaml.cs">
       <DependentUpon>EditDepartment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Room.cs" />
-    <Compile Include="Security.cs" />
     <Page Include="DepartmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
