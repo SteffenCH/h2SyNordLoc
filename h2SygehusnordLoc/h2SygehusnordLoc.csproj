@@ -63,12 +63,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="InformationBuilding.xaml.cs">
+      <DependentUpon>InformationBuilding.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Login.cs" />
     <Compile Include="Room.cs" />
     <Compile Include="Security.cs" />
     <Compile Include="winDashboard.xaml.cs">
       <DependentUpon>winDashboard.xaml</DependentUpon>
     </Compile>
+    <Page Include="InformationBuilding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -88,10 +95,6 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Information.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="winDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
