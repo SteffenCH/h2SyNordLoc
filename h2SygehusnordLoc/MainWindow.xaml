@@ -7,6 +7,12 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <Label Content="Brugernavn" HorizontalAlignment="Left" Margin="116,108,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="116,142,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <PasswordBox x:Name="pwPassword" HorizontalAlignment="Left" Margin="204,142,0,0" VerticalAlignment="Top" Width="160" Height="23" FontWeight="Bold" TabIndex="2"/>
+        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="204,108,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="160" FontWeight="Bold" TabIndex="1"/>
+        <Button x:Name="btnExit" Content="Luk" HorizontalAlignment="Left" Margin="289,170,0,0" VerticalAlignment="Top" Width="75" FontWeight="Bold" Click="btnExit_Click" TabIndex="4"/>
+        <Button x:Name="btnLogin" Content="Login" HorizontalAlignment="Left" Margin="171,170,0,0" VerticalAlignment="Top" Width="113" FontWeight="Bold" Click="btnLogin_Click" TabIndex="3"/>
+
     </Grid>
 </Window>

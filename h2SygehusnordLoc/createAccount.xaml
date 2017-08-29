@@ -1,0 +1,20 @@
+﻿<Window x:Class="h2SygehusnordLoc.createAccount"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:h2SygehusnordLoc"
+        mc:Ignorable="d"
+        Title="createAccount" Height="300" Width="300">
+    <Grid>
+        <Label Content="Brugernavn" HorizontalAlignment="Left" Margin="59,66,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="59,97,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bekræft adgangskode" HorizontalAlignment="Left" Margin="26,124,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnCreate" Content="Opret bruger" HorizontalAlignment="Left" Margin="152,161,0,0" VerticalAlignment="Top" Width="119" Click="btnCreate_Click"/>
+        <Button x:Name="btnBack" Content="Button" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75"/>
+        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="152,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="pwPassword" HorizontalAlignment="Left" Margin="152,96,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <PasswordBox x:Name="pwPasswordverify" HorizontalAlignment="Left" Margin="152,127,0,0" VerticalAlignment="Top" Width="119" Height="22"/>
+
+    </Grid>
+</Window>
