@@ -43,9 +43,16 @@ namespace h2SygehusnordLoc
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            db.Building.Add(new Building { address = tbAddress.Text, city = tbCity.Text, zipcode = tbZipcode.Text, room_count = Convert.ToInt32(tbRoom_count.Text), created_at = Convert.ToDateTime(dpCreated_at.Text) });
-            Updatedb();
-            Close();
+            try
+            {
+                db.Building.Add(new Building { address = tbAddress.Text, city = tbCity.Text, zipcode = tbZipcode.Text, room_count = Convert.ToInt32(tbRoom_count.Text), created_at = Convert.ToDateTime(dpCreated_at.Text) });
+            }
+            catch
+            {
+                MessageBox.Show("Data er blevet opdateret!", "Opdateret", MessageBoxButton.OK, MessageBoxImage.Information);
+                Updatedb();
+                Close();
+            }
         }
     }
 }

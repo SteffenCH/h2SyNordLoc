@@ -30,8 +30,13 @@ namespace h2SygehusnordLoc
 
             UpdateDataGrid(this, EventArgs.Empty);
 
-            buildingList = db.Building.ToList();
-            dataGridBuilding.ItemsSource = buildingList;
+            var query = from Building in db.Building
+                      select Building;
+
+            dataGridBuilding.ItemsSource = buildingList.ToList();
+
+            /*buildingList = db.Building.ToList();
+            dataGridBuilding.ItemsSource = buildingList;*/
             /*var query = (from b in db.Building
             var query = (from b in db.Building
 
@@ -131,19 +136,22 @@ namespace h2SygehusnordLoc
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            /*int ID = (dataGridBuilding.SelectedItem as Building).ID;
-            Building building = (from Building in db.Building where Building.ID == building select Building)*/
-
-            /*int medlemID = (dataGrid.SelectedItem as Medlem).MedlemID;
-            Medlem medlem = (from Medlems in db.Medlemmer where Medlems.MedlemID == medlemID select Medlems).SingleOrDefault();
-            db.Medlemmer.Remove(medlem);
-            db.SaveChanges();
-            dataGrid.ItemsSource = db.Medlemmer.ToList();
-
-            this.Hide();
-            MainWindow main = new MainWindow();
-            main.ShowDialog();*/
-
+            try
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    int ID = (dataGridBuilding.SelectedItem as Building).ID;
+                    Building building = (from Building in db.Building where Building.ID == ID select Building).SingleOrDefault();
+                    db.Building.Remove(building);
+                    db.SaveChanges();
+                    dataGridBuilding.ItemsSource = db.Building.ToList();
+                }    
+            }
+            catch
+            {
+                MessageBox.Show("Data er slettet!", "Slet", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }
