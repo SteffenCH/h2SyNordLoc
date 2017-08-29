@@ -27,7 +27,6 @@ namespace h2SygehusnordLoc
         public InformationBuilding()
         {
             InitializeComponent();
-
             var query = (from b in db.Building
                          select new
                          {
