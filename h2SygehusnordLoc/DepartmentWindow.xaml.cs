@@ -70,8 +70,20 @@ namespace h2SygehusnordLoc
             if (department != null)
             {
                 EditDepartment editDepartment = new EditDepartment(db, department);
+                editDepartment.closeEvent += new EventHandler(UpdateDataGrid);
                 editDepartment.ShowDialog();
             }
+        }
+
+        private void btnCreateDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            CreateDepartment createDepartment = new CreateDepartment();
+            createDepartment.ShowDialog();
+        }
+
+        private void btnDeleteDepartment_Click(object sender, RoutedEventArgs e)
+        {
+        
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
