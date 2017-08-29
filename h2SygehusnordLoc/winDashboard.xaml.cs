@@ -19,8 +19,9 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class winDashboard : Window
     {
-        InformationBuilding infobuild = new InformationBuilding();
-        DepartmentWindow departmentWindow = new DepartmentWindow();
+        InformationBuilding ib = new InformationBuilding();
+        DepartmentWindow dw = new DepartmentWindow();
+        createAccount ca = new createAccount();
 
         public winDashboard()
         {
@@ -29,17 +30,22 @@ namespace h2SygehusnordLoc
 
         private void btnBuilding_Click(object sender, RoutedEventArgs e)
         {
-            infobuild.ShowDialog();
+            ib.ShowDialog();
         }
 
         private void btnDepartment_Click(object sender, RoutedEventArgs e)
         {
-            departmentWindow.ShowDialog();
+            dw.ShowDialog();
         }
 
         private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void btnCreateUser_Click(object sender, RoutedEventArgs e)
+        {
+            ca.ShowDialog();
         }
     }
 }
