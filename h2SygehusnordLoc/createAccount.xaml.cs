@@ -41,7 +41,7 @@ namespace h2SygehusnordLoc
             }
         }
 
-        private void createUser(string username,string password_hash)
+        private void createUser(string username, string password_hash)
         {
             db.Login.Add(new Login { username = username, password_hash = password_hash });
             try
@@ -49,14 +49,27 @@ namespace h2SygehusnordLoc
                 db.SaveChanges();
                 MessageBox.Show("Kontoen blev korrekt oprettet.");
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 MessageBox.Show("Der er sket en fejl, vis denne besked til en fagidiot " + e);
             }
         }
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
             sanitizeUserInput();
-            MessageBox.Show("");
+        }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
+            tbUsername.Text = null;
+            pwPassword.Password = null;
+            pwPasswordverify.Password = null;
         }
     }
 }
