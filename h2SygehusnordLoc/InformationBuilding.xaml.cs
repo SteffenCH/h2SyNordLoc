@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,16 +21,18 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class InformationBuilding : Window
     {
-        private Building building;
         private databaseContext db = new databaseContext();
         List<Building> buildingList = new List<Building>();
-        public ObservableCollection<Building> Buildings { get; set; }
 
         public InformationBuilding()
         {
             InitializeComponent();
 
-            var query = (from b in db.Building
+            UpdateDataGrid(this, EventArgs.Empty);
+
+            buildingList = db.Building.ToList();
+            dataGridBuilding.ItemsSource = buildingList;
+            /*var query = (from b in db.Building
                          select new
                          {
                              b.ID,
@@ -43,14 +46,32 @@ namespace h2SygehusnordLoc
             foreach (var item in query)
             {
                 dataGridBuilding.Items.Add(item);
-            }
+            }*/
+        }
+        
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
-        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            AddBuilding addBuilding = new AddBuilding();
+            addBuilding.ShowDialog();
+        }
+
+        private void tbSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.IsUp)
             {
-                var searchValue = tbSearch.Text.Trim();
+                UpdateDataGrid(this, EventArgs.Empty);
+
+                CultureInfo culture = CultureInfo.CurrentCulture;
+                buildingList = buildingList.Where(c => culture.CompareInfo.IndexOf(c.address, tbSearch.Text, CompareOptions.IgnoreCase) >= 0 || culture.CompareInfo.IndexOf(c.city, tbSearch.Text, CompareOptions.IgnoreCase) >= 0 || culture.CompareInfo.IndexOf(c.zipcode, tbSearch.Text, CompareOptions.IgnoreCase) >= 0).ToList();
+                
+                dataGridBuilding.ItemsSource = buildingList;
+
+                /*var searchValue = tbSearch.Text.Trim();
                 var query = (from b in db.Building
                              where (b.address.StartsWith(searchValue))
                              select new
@@ -66,45 +87,37 @@ namespace h2SygehusnordLoc
                 foreach (var item in query)
                 {
                     dataGridBuilding.Items.Add(item);
-                }
+                }*/
             }
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void UpdateDataGrid(object sender, EventArgs e)
         {
-            /*try
+            buildingList = new List<Building>();
+            db = new databaseContext();
+
+            buildingList = db.Building.ToList();
+
+            if (tbSearch.Text != null && tbSearch.Text == "")
             {
-                object item = dataGridBuilding.SelectedItem;
-                databaseContext db = new databaseContext();
+                CultureInfo culture = CultureInfo.CurrentCulture;
 
-                int m = int.Parse((dataGridBuilding.SelectedCells[0].Column.GetCellContent(item) as
-                    TextBox).Text);
-            }*/
+                buildingList = buildingList.Where(c => culture.CompareInfo.IndexOf(c.address, tbSearch.Text, CompareOptions.IgnoreCase) >= 0).ToList();
+            }
+
+            dataGridBuilding.ItemsSource = buildingList;
         }
 
-        private void btnClose_Click(object sender, RoutedEventArgs e)
+        private void dataGridBuilding_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Close();
-        }
+            Building building = ((FrameworkElement)e.OriginalSource).DataContext as Building;
 
-        private void btnReset_Click(object sender, RoutedEventArgs e)
-        {
-            tbAddress.Text = null;
-            tbCity.Text = null;
-            tbZipCode.Text = null;
-            tbRoomCount.Text = null;
-            dataGridBuilding.ItemsSource = null;
-            dataGridBuilding.Items.Clear();
-        }
-
-        private void dataGridBuilding_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            var dg = (DataGrid)sender;
-            
-            if (dataGridBuilding.SelectedIndex >= 0)
+            if (building != null)
             {
-                
-                //tbAddress.SelectedText = building.address;
+
+                EditBuilding editBuilding = new EditBuilding(db, building);
+                editBuilding.closeEvent += new EventHandler(UpdateDataGrid);
+                editBuilding.ShowDialog();
             }
         }
     }
