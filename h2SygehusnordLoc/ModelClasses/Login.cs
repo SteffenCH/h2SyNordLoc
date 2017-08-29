@@ -18,5 +18,10 @@ namespace h2SygehusnordLoc
         [Required]
         [StringLength(64)]
         public string password_hash { get; set; }
+
+        [StringLength(4)]
+        public string pin { get; set; }
+
+        public byte? privilige_level { get; set; }
     }
 }
