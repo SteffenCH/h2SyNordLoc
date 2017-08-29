@@ -50,6 +50,8 @@ namespace h2SygehusnordLoc
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            department.hall_ID = Convert.ToInt32(tbHallID.Text);
+            department.building_ID = Convert.ToInt32(tbBuildingID.Text);
             department.department_name = tbDepartmentName.Text;
             department.created_at = Convert.ToDateTime(dpCreatedAt.Text);
 

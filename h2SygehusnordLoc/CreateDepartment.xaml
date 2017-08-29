@@ -6,15 +6,19 @@
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
         Title="CreateDepartment" Height="266.418" Width="302.239">
-    <Grid>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Gang ID:" VerticalAlignment="Top" IsEnabled="True"/>
         <TextBox Name="tbHallID" HorizontalAlignment="Left" Height="23" Margin="114,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="True" TabIndex="0"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="Bygnings ID:" VerticalAlignment="Top" IsEnabled="False"/>
         <TextBox Name="tbBuildingID" HorizontalAlignment="Left" Height="23" Margin="114,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="True" TabIndex="1"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Afdelings navn:" VerticalAlignment="Top" IsEnabled="True"/>
         <TextBox Name="tbDepartmentName" HorizontalAlignment="Left" Height="23" Margin="114,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="True" TabIndex="2"/>
+        
         <TextBlock HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Oprettet" VerticalAlignment="Top" IsEnabled="True"/>
         <DatePicker Name="dpCreatedAt" HorizontalAlignment="Left" Margin="114,145,0,0" VerticalAlignment="Top" Width="162"/>
+        
         <Button Name="btnCreate" Content="Opret" HorizontalAlignment="Left" Margin="114,191,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="btnCreate_Click"/>
         <Button Name="btnCancel" Content="Annuller" HorizontalAlignment="Left" Margin="201,191,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="btnCancel_Click"/>
     </Grid>

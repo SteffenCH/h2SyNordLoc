@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
         Title="EditDepartment" Height="266.418" Width="302.239">
-    <Grid>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Gang ID:" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox Name="tbHallID" HorizontalAlignment="Left" Height="23" Margin="114,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="False" TabIndex="0"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="Bygnings ID:" VerticalAlignment="Top" IsEnabled="False"/>
-        <TextBox Name="tbBuildingID" HorizontalAlignment="Left" Height="23" Margin="114,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="False" TabIndex="1"/>
+        <TextBox Name="tbHallID" HorizontalAlignment="Left" Height="23" Margin="114,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="True" TabIndex="0"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="Bygnings ID:" VerticalAlignment="Top" IsEnabled="True"/>
+        <TextBox Name="tbBuildingID" HorizontalAlignment="Left" Height="23" Margin="114,65,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="True" TabIndex="1"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Afdelings navn:" VerticalAlignment="Top" IsEnabled="True"/>
         <TextBox Name="tbDepartmentName" HorizontalAlignment="Left" Height="23" Margin="114,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="True" TabIndex="2"/>
         <TextBlock HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Oprettet" VerticalAlignment="Top" IsEnabled="True"/>

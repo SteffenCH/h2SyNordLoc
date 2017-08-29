@@ -20,7 +20,6 @@ namespace h2SygehusnordLoc
     public partial class CreateDepartment : Window
     {
         private databaseContext db = new databaseContext();
-        private Department department;
         public event EventHandler closeEvent;
 
         public CreateDepartment()
@@ -44,12 +43,8 @@ namespace h2SygehusnordLoc
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            department.hall_ID = Convert.ToInt32(tbHallID.Text);
-            department.building_ID = Convert.ToInt32(tbBuildingID.Text);
-            department.department_name = tbDepartmentName.Text;
-            department.created_at = Convert.ToDateTime(dpCreatedAt.Text);
-
-            db.Department.Add(department);
+            db.Department.Add(new Department { hall_ID = Convert.ToInt32(tbHallID.Text), building_ID = Convert.ToInt32(tbBuildingID.Text),
+                department_name = tbDepartmentName.Text, created_at = Convert.ToDateTime(dpCreatedAt.Text) });
 
             UpdateDB();
 
