@@ -120,5 +120,11 @@ namespace h2SygehusnordLoc
                 editBuilding.ShowDialog();
             }
         }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
+        }
     }
 }
