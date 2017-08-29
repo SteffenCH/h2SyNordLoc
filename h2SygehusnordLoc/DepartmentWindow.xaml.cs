@@ -73,5 +73,18 @@ namespace h2SygehusnordLoc
                 editDepartment.ShowDialog();
             }
         }
+
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
+            tbSearchBox.Text = "";
+            UpdateDataGrid(this, EventArgs.Empty);
+        }
     }
 }

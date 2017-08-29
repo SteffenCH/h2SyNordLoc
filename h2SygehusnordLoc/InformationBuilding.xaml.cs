@@ -73,6 +73,12 @@ namespace h2SygehusnordLoc
             }
         }
 
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
+        }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
             /*try

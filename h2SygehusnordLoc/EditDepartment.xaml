@@ -16,6 +16,6 @@
         <TextBlock HorizontalAlignment="Left" Margin="10,150,0,0" TextWrapping="Wrap" Text="Oprettet" VerticalAlignment="Top" IsEnabled="True"/>
         <DatePicker Name="dpCreatedAt" HorizontalAlignment="Left" Margin="114,145,0,0" VerticalAlignment="Top" Width="162"/>
         <Button Name="btnSave" Content="Gem" HorizontalAlignment="Left" Margin="114,191,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
-        <Button Name="btnCancel" Content="Annuller" HorizontalAlignment="Left" Margin="201,191,0,0" VerticalAlignment="Top" Width="75" Height="29"/>
+        <Button Name="btnCancel" Content="Annuller" HorizontalAlignment="Left" Margin="201,191,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="btnCancel_Click"/>
     </Grid>
 </Window>
