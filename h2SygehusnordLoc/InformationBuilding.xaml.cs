@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,18 @@ namespace h2SygehusnordLoc
     {
         private databaseContext db = new databaseContext();
         List<Building> buildingList = new List<Building>();
-        public ObservableCollection<Building> Buildings { get; set; }
 
         public InformationBuilding()
         {
             InitializeComponent();
 
+            UpdateDataGrid(this, EventArgs.Empty);
+
+            buildingList = db.Building.ToList();
+            dataGridBuilding.ItemsSource = buildingList;
+            /*var query = (from b in db.Building
             var query = (from b in db.Building
+
                          select new
                          {
                              b.ID,
@@ -42,19 +48,32 @@ namespace h2SygehusnordLoc
             foreach (var item in query)
             {
                 dataGridBuilding.Items.Add(item);
-            }
-
-            if (dataGridBuilding.SelectedIndex >= 0)
-            {
-                var d = dataGridBuilding.SelectedItem;
-            }
+            }*/
+        }
+        
+        private void btnClose_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
         }
 
-        private void tbSearch_KeyDown(object sender, KeyEventArgs e)
+        private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            if (e.Key == Key.Enter)
+            AddBuilding addBuilding = new AddBuilding();
+            addBuilding.ShowDialog();
+        }
+
+        private void tbSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            if (e.IsUp)
             {
-                var searchValue = tbSearch.Text.Trim();
+                UpdateDataGrid(this, EventArgs.Empty);
+
+                CultureInfo culture = CultureInfo.CurrentCulture;
+                buildingList = buildingList.Where(c => culture.CompareInfo.IndexOf(c.address, tbSearch.Text, CompareOptions.IgnoreCase) >= 0 || culture.CompareInfo.IndexOf(c.city, tbSearch.Text, CompareOptions.IgnoreCase) >= 0 || culture.CompareInfo.IndexOf(c.zipcode, tbSearch.Text, CompareOptions.IgnoreCase) >= 0).ToList();
+                
+                dataGridBuilding.ItemsSource = buildingList;
+
+                /*var searchValue = tbSearch.Text.Trim();
                 var query = (from b in db.Building
                              where (b.address.StartsWith(searchValue))
                              select new
@@ -70,20 +89,44 @@ namespace h2SygehusnordLoc
                 foreach (var item in query)
                 {
                     dataGridBuilding.Items.Add(item);
-                }
+                }*/
             }
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void UpdateDataGrid(object sender, EventArgs e)
         {
-            /*try
-            {
-                object item = dataGridBuilding.SelectedItem;
-                databaseContext db = new databaseContext();
+            buildingList = new List<Building>();
+            db = new databaseContext();
 
-                int m = int.Parse((dataGridBuilding.SelectedCells[0].Column.GetCellContent(item) as
-                    TextBox).Text);
-            }*/
+            buildingList = db.Building.ToList();
+
+            if (tbSearch.Text != null && tbSearch.Text == "")
+            {
+                CultureInfo culture = CultureInfo.CurrentCulture;
+
+                buildingList = buildingList.Where(c => culture.CompareInfo.IndexOf(c.address, tbSearch.Text, CompareOptions.IgnoreCase) >= 0).ToList();
+            }
+
+            dataGridBuilding.ItemsSource = buildingList;
+        }
+
+        private void dataGridBuilding_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        {
+            Building building = ((FrameworkElement)e.OriginalSource).DataContext as Building;
+
+            if (building != null)
+            {
+
+                EditBuilding editBuilding = new EditBuilding(db, building);
+                editBuilding.closeEvent += new EventHandler(UpdateDataGrid);
+                editBuilding.ShowDialog();
+            }
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
         }
     }
 }

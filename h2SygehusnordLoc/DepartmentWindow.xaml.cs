@@ -83,7 +83,20 @@ namespace h2SygehusnordLoc
 
         private void btnDeleteDepartment_Click(object sender, RoutedEventArgs e)
         {
+        
+        }
 
+        private void btnExit_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
+            tbSearchBox.Text = "";
+            UpdateDataGrid(this, EventArgs.Empty);
         }
     }
 }

@@ -55,6 +55,7 @@
                 </Style>
             </TextBox.Style>
         </TextBox>
+        <Button x:Name="btnExit" Content="Luk" HorizontalAlignment="Left" Margin="384,10,0,0" VerticalAlignment="Top" Width="100" Height="36" Click="btnExit_Click"/>
 
     </Grid>
 </Window>
