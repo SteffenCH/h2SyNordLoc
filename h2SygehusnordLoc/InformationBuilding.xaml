@@ -16,7 +16,13 @@
                     <DataGridTextColumn Header="Postnr" Binding="{Binding zipcode}"/>
                     <DataGridTextColumn Header="Rumnr" Binding="{Binding room_count}"/>
                     <DataGridTextColumn Header="Oprettet" Binding="{Binding created_at}"/>
-                    <DataGridTextColumn Header="Slet" Binding="{Binding ID}"/>
+                    <DataGridTemplateColumn Header="Slet" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnSlet" Content="{Binding ID}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Click="btnSlet_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
