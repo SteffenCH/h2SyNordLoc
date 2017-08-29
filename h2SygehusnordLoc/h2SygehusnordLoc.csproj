@@ -66,6 +66,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Api\pincodeApi.cs" />
     <Compile Include="createAccount.xaml.cs">
       <DependentUpon>createAccount.xaml</DependentUpon>
     </Compile>
@@ -78,14 +79,11 @@
     <Compile Include="InformationBuilding.xaml.cs">
       <DependentUpon>InformationBuilding.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Login.cs" />
-    <Compile Include="Room.cs" />
-    <Compile Include="Security.cs" />
+    <Compile Include="ModelClasses\Login.cs" />
+    <Compile Include="ModelClasses\Room.cs" />
+    <Compile Include="ModelClasses\Security.cs" />
     <Compile Include="winDashboard.xaml.cs">
       <DependentUpon>winDashboard.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="winMaintenance.xaml.cs">
-      <DependentUpon>winMaintenance.xaml</DependentUpon>
     </Compile>
     <Page Include="createAccount.xaml">
       <SubType>Designer</SubType>
@@ -103,28 +101,32 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Building.cs" />
-    <Compile Include="Consumption.cs" />
-    <Compile Include="databaseContext.cs" />
-    <Compile Include="Department.cs" />
-    <Compile Include="Hall.cs" />
-    <Compile Include="Maintenance.cs" />
-    <Compile Include="MaintenanceType.cs" />
+    <Compile Include="ModelClasses\Building.cs" />
+    <Compile Include="ModelClasses\Consumption.cs" />
+    <Compile Include="ModelClasses\databaseContext.cs" />
+    <Compile Include="ModelClasses\Department.cs" />
+    <Compile Include="ModelClasses\Hall.cs" />
+    <Compile Include="ModelClasses\Maintenance.cs" />
+    <Compile Include="ModelClasses\MaintenanceType.cs" />
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Page Include="winDashboard.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="winMaintenance.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Patient.cs" />
+    <Compile Include="ModelClasses\Patient.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>

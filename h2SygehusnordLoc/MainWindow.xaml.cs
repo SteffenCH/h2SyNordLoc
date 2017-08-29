@@ -50,7 +50,7 @@ namespace h2SygehusnordLoc
             try { 
             if (BCrypt.Net.BCrypt.Verify(password, user[0].password_hash)) {
                  LoggedIn = true;
-                 login();
+                 login(user[0].ID,user[0].username);
                 }
             }
             catch (Exception e)
@@ -65,9 +65,10 @@ namespace h2SygehusnordLoc
             this.Close();
         }
 
-        private void login()
+        private void login(int userId,string username)
         {
             if (LoggedIn) {
+            LoggedInId = userId;
             winDashboard dashborard = new winDashboard();
             dashborard.Show();
             this.Close();
