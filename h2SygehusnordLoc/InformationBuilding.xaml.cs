@@ -27,7 +27,6 @@ namespace h2SygehusnordLoc
         public InformationBuilding()
         {
             InitializeComponent();
-
             var query = (from b in db.Building
                          select new
                          {
@@ -72,6 +71,12 @@ namespace h2SygehusnordLoc
                     dataGridBuilding.Items.Add(item);
                 }
             }
+        }
+
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            e.Cancel = true;
         }
 
         private void btnSave_Click(object sender, RoutedEventArgs e)

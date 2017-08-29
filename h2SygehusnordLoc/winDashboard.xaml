@@ -7,15 +7,15 @@
         mc:Ignorable="d"
         Title="Dashboard" Height="219.2" Width="238.4">
     <Grid>
-        <Button x:Name="btnBuilding" Content="Bygning" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnBuilding_Click"/>
-        <Button x:Name="btnDepartment" Content="Afdeling" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="btnDepartment_Click"/>
-        <Button x:Name="btnHall" Content="Gang" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnRoom" Content="Stue" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnPatient" Content="Patient" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnMaintenance" Content="Vedligeholdelse" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="92"/>
-        <Button x:Name="btnConsumption" Content="Forbrug" HorizontalAlignment="Left" Margin="147,34,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnQuit" Content="Luk" HorizontalAlignment="Left" Margin="172,160,0,0" VerticalAlignment="Top" Width="50" Click="btnQuit_Click"/>
-        <Button x:Name="btnCreateUser" Content="Opret Bruger" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnBuilding" Content="Bygning" TabIndex="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnBuilding_Click"/>
+        <Button x:Name="btnDepartment" Content="Afdeling" TabIndex="1" HorizontalAlignment="Left" Margin="10,34,0,0" VerticalAlignment="Top" Width="75" Click="btnDepartment_Click"/>
+        <Button x:Name="btnHall" Content="Gang" TabIndex="2" HorizontalAlignment="Left" Margin="10,57,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnRoom" Content="Stue" TabIndex="3" HorizontalAlignment="Left" Margin="10,81,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnPatient" Content="Patient" TabIndex="4" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnMaintenance" Content="Vedligeholdelse" TabIndex="5" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="92"/>
+        <Button x:Name="btnConsumption" Content="Forbrug" TabIndex="6" HorizontalAlignment="Left" Margin="147,34,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button x:Name="btnQuit" Content="Luk" TabIndex="8" HorizontalAlignment="Left" Margin="172,160,0,0" VerticalAlignment="Top" Width="50" Click="btnQuit_Click"/>
+        <Button x:Name="btnCreateUser" Content="Opret Bruger" TabIndex="7" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="75"/>
 
     </Grid>
 </Window>

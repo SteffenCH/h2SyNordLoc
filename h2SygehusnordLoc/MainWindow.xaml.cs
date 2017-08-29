@@ -24,6 +24,7 @@ namespace h2SygehusnordLoc
         public MainWindow()
         {
             InitializeComponent();
+            dashboard.Show();
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
