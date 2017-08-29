@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
         Title="DepartmentWindow" Height="400" Width="500">
-    <Grid>
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
         <DataGrid x:Name="datagridDepartment" HorizontalAlignment="Center" Height="309" Margin="10,51,10,10" VerticalAlignment="Center" Width="474" IsReadOnly="True" 
                   ItemsSource="{Binding Department}" SelectionMode="Extended" SelectionUnit="FullRow" CanUserSortColumns="True"
                   CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False"
@@ -19,10 +19,17 @@
                 <DataGridTextColumn Header="Bygnings ID" Binding="{Binding building_ID}"></DataGridTextColumn>
                 <DataGridTextColumn Width="140" Header="Afdelings navn" Binding="{Binding department_name}"></DataGridTextColumn>
                 <DataGridTextColumn Width="150" Header="Oprettet" Binding="{Binding created_at}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Slet">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDeleteDepartment" Content="{Binding Department}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Click="btnDeleteDepartment_Click"></Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
             </DataGrid.Columns>
 
         </DataGrid>
-        <Button Name="btnCreateDepartment" Content="Opret afdeling" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="36"/>
+        <Button Name="btnCreateDepartment" Content="Opret afdeling" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="36" Click="btnCreateDepartment_Click"/>
 
         <TextBox x:Name="tbSearchBox" HorizontalAlignment="Left" Height="36" Margin="126,10,0,0" TextWrapping="Wrap" MaxLines="1" FontSize="24" VerticalAlignment="Top" Width="217" KeyUp="tbSearchBox_KeyUp">
             <TextBox.Style>
