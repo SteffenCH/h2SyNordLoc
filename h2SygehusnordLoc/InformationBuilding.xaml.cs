@@ -33,6 +33,8 @@ namespace h2SygehusnordLoc
             buildingList = db.Building.ToList();
             dataGridBuilding.ItemsSource = buildingList;
             /*var query = (from b in db.Building
+            var query = (from b in db.Building
+
                          select new
                          {
                              b.ID,
