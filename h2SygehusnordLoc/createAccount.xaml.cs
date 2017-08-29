@@ -43,15 +43,25 @@ namespace h2SygehusnordLoc
 
         private void createUser(string username, string password_hash)
         {
-            db.Login.Add(new Login { username = username, password_hash = password_hash });
-            try
+            if (db.Login.SqlQuery("select * from login where username = '" + username + "'").Count() == 0)
             {
-                db.SaveChanges();
-                MessageBox.Show("Kontoen blev korrekt oprettet.");
+                db.Login.Add(new Login { username = username, password_hash = password_hash });
+                try
+                {
+                    db.SaveChanges();
+                    MessageBox.Show("Kontoen blev korrekt oprettet.");
+                    tbUsername.Text = "";
+                    pwPassword.Password = "";
+                    pwPasswordverify.Password = "";
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Der er sket en fejl, vis denne besked til en fagidiot " + e);
+                }
             }
-            catch (Exception e)
+            else
             {
-                MessageBox.Show("Der er sket en fejl, vis denne besked til en fagidiot " + e);
+                MessageBox.Show("Der findes allerede en konto med dette brugernavn");
             }
         }
         private void btnCreate_Click(object sender, RoutedEventArgs e)
