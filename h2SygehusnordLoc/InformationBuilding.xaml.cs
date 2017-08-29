@@ -128,5 +128,22 @@ namespace h2SygehusnordLoc
             this.Visibility = Visibility.Hidden;
             e.Cancel = true;
         }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            /*int ID = (dataGridBuilding.SelectedItem as Building).ID;
+            Building building = (from Building in db.Building where Building.ID == building select Building)*/
+
+            /*int medlemID = (dataGrid.SelectedItem as Medlem).MedlemID;
+            Medlem medlem = (from Medlems in db.Medlemmer where Medlems.MedlemID == medlemID select Medlems).SingleOrDefault();
+            db.Medlemmer.Remove(medlem);
+            db.SaveChanges();
+            dataGrid.ItemsSource = db.Medlemmer.ToList();
+
+            this.Hide();
+            MainWindow main = new MainWindow();
+            main.ShowDialog();*/
+
+        }
     }
 }

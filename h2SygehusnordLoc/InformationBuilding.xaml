@@ -19,7 +19,7 @@
                     <DataGridTemplateColumn Header="Slet" >
                         <DataGridTemplateColumn.CellTemplate>
                             <DataTemplate>
-                                <Button x:Name="btnSlet" Content="{Binding ID}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Click="btnSlet_Click" />
+                                <Button x:Name="btnDelete" Content="{Binding ID}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Click="btnDelete_Click" />
                             </DataTemplate>
                         </DataGridTemplateColumn.CellTemplate>
                     </DataGridTemplateColumn>
