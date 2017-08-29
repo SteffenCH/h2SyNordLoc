@@ -19,12 +19,25 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class winDashboard : Window
     {
+        InformationBuilding infobuild = new InformationBuilding();
+        DepartmentWindow departmentWindow = new DepartmentWindow();
+
         public winDashboard()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void btnBuilding_Click(object sender, RoutedEventArgs e)
+        {
+            infobuild.ShowDialog();
+        }
+
+        private void btnDepartment_Click(object sender, RoutedEventArgs e)
+        {
+            departmentWindow.ShowDialog();
+        }
+
+        private void btnQuit_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
         }
