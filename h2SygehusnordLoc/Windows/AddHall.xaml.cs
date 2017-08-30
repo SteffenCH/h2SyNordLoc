@@ -12,17 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace h2SygehusnordLoc
+namespace h2SygehusnordLoc.Windows
 {
     /// <summary>
-    /// Interaction logic for AddBuilding.xaml
+    /// Interaction logic for AddHall.xaml
     /// </summary>
-    public partial class AddBuilding : Window
+    public partial class AddHall : Window
     {
         public event EventHandler closeEvent;
         databaseContext db = new databaseContext();
 
-        public AddBuilding()
+        public AddHall()
         {
             InitializeComponent();
         }
@@ -44,7 +44,7 @@ namespace h2SygehusnordLoc
 
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            db.Building.Add(new Building { address = tbAddress.Text, city = tbCity.Text, zipcode = tbZipcode.Text, room_count = Convert.ToInt32(tbRoom_count.Text), created_at = Convert.ToDateTime(dpCreated_at.Text) });
+            db.Hall.Add(new Hall { ID = Convert.ToInt32(tbID.Text), consumption_ID = Convert.ToInt32(tbConsumption_ID.Text), department_ID = Convert.ToInt32(tbDepartment_ID.Text), created_at = Convert.ToDateTime(dpCreated_at.Text) });
             MessageBox.Show("Data er blevet opdateret!", "Opdateret", MessageBoxButton.OK, MessageBoxImage.Information);
             Updatedb();
             Close();

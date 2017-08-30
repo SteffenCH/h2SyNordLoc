@@ -66,6 +66,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\AddHall.xaml.cs">
+      <DependentUpon>AddHall.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CreateDepartment.xaml.cs">
       <DependentUpon>CreateDepartment.xaml</DependentUpon>
     </Compile>
@@ -102,6 +105,10 @@
     <Compile Include="Windows\winDashboard.xaml.cs">
       <DependentUpon>winDashboard.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\AddHall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\CreateDepartment.xaml">
     </Page>
     <Page Include="Windows\AddBuilding.xaml">
