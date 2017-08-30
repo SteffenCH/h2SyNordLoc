@@ -30,8 +30,14 @@ namespace h2SygehusnordLoc
 
             UpdateDataGrid(this, EventArgs.Empty);
 
-            buildingList = db.Building.ToList();
-            dataGridBuilding.ItemsSource = buildingList;
+            /*var query = from b in buildingList
+                        orderby b.address ascending
+                        select b;*/
+
+            //dataGridBuilding.ItemsSource = buildingList.ToList();
+
+            /*buildingList = db.Building.ToList();
+            dataGridBuilding.ItemsSource = buildingList;*/
             /*var query = (from b in db.Building
             var query = (from b in db.Building
 
@@ -60,6 +66,7 @@ namespace h2SygehusnordLoc
         {
             AddBuilding addBuilding = new AddBuilding();
             addBuilding.ShowDialog();
+            UpdateDataGrid(this, EventArgs.Empty);
         }
 
         private void tbSearch_KeyUp(object sender, KeyEventArgs e)
@@ -127,6 +134,26 @@ namespace h2SygehusnordLoc
         {
             this.Visibility = Visibility.Hidden;
             e.Cancel = true;
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker på at du vil slette?", "Slet", System.Windows.MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    int ID = (dataGridBuilding.SelectedItem as Building).ID;
+                    Building building = (from Building in db.Building where Building.ID == ID select Building).SingleOrDefault();
+                    db.Building.Remove(building);
+                    db.SaveChanges();
+                    dataGridBuilding.ItemsSource = db.Building.ToList();
+                }    
+            }
+            catch
+            {
+                MessageBox.Show("Data er slettet!", "Slet", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
     }
 }

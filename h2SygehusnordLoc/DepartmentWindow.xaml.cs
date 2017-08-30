@@ -79,11 +79,28 @@ namespace h2SygehusnordLoc
         {
             CreateDepartment createDepartment = new CreateDepartment();
             createDepartment.ShowDialog();
+
+            UpdateDataGrid(this, EventArgs.Empty);
         }
 
         private void btnDeleteDepartment_Click(object sender, RoutedEventArgs e)
         {
-        
+            try
+            {
+                MessageBoxResult messageBoxResult = MessageBox.Show("Er du sikker på at du vil slette?", "Slet", MessageBoxButton.YesNo);
+                if (messageBoxResult == MessageBoxResult.Yes)
+                {
+                    int ID = (datagridDepartment.SelectedItem as Department).ID;
+                    Department department = (from Department in db.Department where Department.ID == ID select Department).SingleOrDefault();
+                    db.Department.Remove(department);
+                    db.SaveChanges();
+                    datagridDepartment.ItemsSource = db.Department.ToList();
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Data er slettet!", "Slet", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
