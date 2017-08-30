@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
-        Title="Oplysninger om bygninger" Height="335.729" Width="443.768">
+        Title="Oplysninger om bygninger" Height="335.729" Width="493.268">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,2,-31">
-        <DockPanel Height="146" LastChildFill="False" Margin="18,95,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="394">
-            <DataGrid x:Name="dataGridBuilding" Height="128" VerticalAlignment="Top" Width="390" AutoGenerateColumns="False" ItemsSource="{Binding Building, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow" MouseDoubleClick="dataGridBuilding_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DockPanel Height="146" LastChildFill="False" Margin="18,95,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="455">
+            <DataGrid x:Name="dataGridBuilding" Height="128" VerticalAlignment="Top" Width="441" AutoGenerateColumns="False" ItemsSource="{Binding Building, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow" MouseDoubleClick="dataGridBuilding_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="Adresse" Binding="{Binding address}"/>
@@ -26,8 +26,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="18,61,0,0" VerticalAlignment="Top" Width="386">
-            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="237" DockPanel.Dock="Right" KeyUp="tbSearch_KeyUp">
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="18,61,0,0" VerticalAlignment="Top" Width="438">
+            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" DockPanel.Dock="Right" KeyUp="tbSearch_KeyUp">
                 <TextBox.Style>
                     <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                         <Style.Resources>
@@ -51,10 +51,10 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            <Button x:Name="btnAdd" Content="Opret bygning" Width="89" Click="btnAdd_Click"/>
+            <Button x:Name="btnAdd" Content="Opret bygning" Width="89" Height="23" Click="btnAdd_Click"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="31" LastChildFill="False" Margin="330,241,0,0" VerticalAlignment="Top" Width="80">
-            <Button x:Name="btnClose" Content="Luk" Height="29" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5" Click="btnClose_Click"/>
+        <DockPanel HorizontalAlignment="Left" Height="31" LastChildFill="False" Margin="378,241,0,0" VerticalAlignment="Top" Width="80">
+            <Button x:Name="btnClose" Content="Luk" Height="23" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5" Click="btnClose_Click"/>
         </DockPanel>
         <Label x:Name="lblName" Content="Bygninger" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
     </Grid>
