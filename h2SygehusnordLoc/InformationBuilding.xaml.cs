@@ -30,10 +30,11 @@ namespace h2SygehusnordLoc
 
             UpdateDataGrid(this, EventArgs.Empty);
 
-            var query = from Building in db.Building
-                      select Building;
+            /*var query = from b in buildingList
+                        orderby b.address ascending
+                        select b;*/
 
-            dataGridBuilding.ItemsSource = buildingList.ToList();
+            //dataGridBuilding.ItemsSource = buildingList.ToList();
 
             /*buildingList = db.Building.ToList();
             dataGridBuilding.ItemsSource = buildingList;*/
@@ -65,6 +66,7 @@ namespace h2SygehusnordLoc
         {
             AddBuilding addBuilding = new AddBuilding();
             addBuilding.ShowDialog();
+            UpdateDataGrid(this, EventArgs.Empty);
         }
 
         private void tbSearch_KeyUp(object sender, KeyEventArgs e)
@@ -138,7 +140,7 @@ namespace h2SygehusnordLoc
         {
             try
             {
-                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker?", "Slet", System.Windows.MessageBoxButton.YesNo);
+                MessageBoxResult messageBoxResult = System.Windows.MessageBox.Show("Er du sikker på at du vil slette?", "Slet", System.Windows.MessageBoxButton.YesNo);
                 if (messageBoxResult == MessageBoxResult.Yes)
                 {
                     int ID = (dataGridBuilding.SelectedItem as Building).ID;
