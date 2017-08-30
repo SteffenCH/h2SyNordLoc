@@ -84,6 +84,12 @@
     <Compile Include="Windows\EditDepartment.xaml.cs">
       <DependentUpon>EditDepartment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditHall.xaml.cs">
+      <DependentUpon>EditHall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HallWindow.xaml.cs">
+      <DependentUpon>HallWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\InformationBuilding.xaml.cs">
       <DependentUpon>InformationBuilding.xaml</DependentUpon>
     </Compile>
@@ -113,6 +119,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\EditDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditHall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HallWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
