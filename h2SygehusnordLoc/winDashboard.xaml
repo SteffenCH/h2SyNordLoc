@@ -14,7 +14,7 @@
         <Button x:Name="btnPatient" Content="Patient" TabIndex="4" HorizontalAlignment="Left" Margin="10,105,0,0" VerticalAlignment="Top" Width="75"/>
         <Button x:Name="btnMaintenance" Content="Vedligeholdelse" TabIndex="5" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="92"/>
         <Button x:Name="btnConsumption" Content="Forbrug" TabIndex="6" HorizontalAlignment="Left" Margin="147,34,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="btnQuit" Content="Luk" TabIndex="8" HorizontalAlignment="Left" Margin="172,160,0,0" VerticalAlignment="Top" Width="50" Click="btnQuit_Click"/>
+        <Button x:Name="btnQuit" Content="Log af" TabIndex="8" HorizontalAlignment="Left" Margin="172,160,0,0" VerticalAlignment="Top" Width="50" Click="btnQuit_Click"/>
         <Button x:Name="btnCreateUser" Content="Opret Bruger" TabIndex="7" HorizontalAlignment="Left" Margin="10,160,0,0" VerticalAlignment="Top" Width="75" Click="btnCreateUser_Click"/>
 
     </Grid>
