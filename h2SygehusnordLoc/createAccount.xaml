@@ -7,14 +7,16 @@
         mc:Ignorable="d"
         Title="createAccount" Height="300" Width="300">
     <Grid>
-        <Label Content="Brugernavn" HorizontalAlignment="Left" Margin="59,66,0,0" VerticalAlignment="Top"/>
-        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="59,97,0,0" VerticalAlignment="Top"/>
-        <Label Content="Bekræft adgangskode" HorizontalAlignment="Left" Margin="26,124,0,0" VerticalAlignment="Top"/>
+        <Label Content="Brugernavn" HorizontalAlignment="Left" Margin="59,37,0,0" VerticalAlignment="Top"/>
+        <Label Content="Adgangskode" HorizontalAlignment="Left" Margin="59,68,0,0" VerticalAlignment="Top"/>
+        <Label Content="Bekræft adgangskode" HorizontalAlignment="Left" Margin="26,95,0,0" VerticalAlignment="Top"/>
         <Button x:Name="btnCreate" Content="Opret bruger" HorizontalAlignment="Left" Margin="152,161,0,0" VerticalAlignment="Top" Width="119" Click="btnCreate_Click"/>
         <Button x:Name="btnExit" Content="Luk" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="75" Click="btnExit_Click"/>
-        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="152,69,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="pwPassword" HorizontalAlignment="Left" Margin="152,96,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
-        <PasswordBox x:Name="pwPasswordverify" HorizontalAlignment="Left" Margin="152,127,0,0" VerticalAlignment="Top" Width="119" Height="22"/>
+        <TextBox x:Name="tbUsername" HorizontalAlignment="Left" Height="23" Margin="152,40,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        <PasswordBox x:Name="pwPassword" HorizontalAlignment="Left" Margin="152,67,0,0" VerticalAlignment="Top" Width="120" Height="23"/>
+        <PasswordBox x:Name="pwPasswordverify" HorizontalAlignment="Left" Margin="152,98,0,0" VerticalAlignment="Top" Width="119" Height="22"/>
+        <Label Content="Pinkode " HorizontalAlignment="Left" Margin="59,126,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <TextBox x:Name="tbPincode" HorizontalAlignment="Left" Height="23" Margin="152,126,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
 
     </Grid>
 </Window>
