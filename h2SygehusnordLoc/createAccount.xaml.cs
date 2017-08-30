@@ -30,22 +30,23 @@ namespace h2SygehusnordLoc
             string username = tbUsername.Text;
             string password = pwPassword.Password;
             string passwordVerify = pwPasswordverify.Password;
-            if (username.Length < 8 || password.Length < 8 && password == passwordVerify)
+            string pin = tbPincode.Text;
+            if (username.Length < 8 || password.Length < 8 && password == passwordVerify || pin.Length < 4 )
             {
                 MessageBox.Show("Username or password was under 8 char's, please enter a valid login");
             }
             else
             {
                 string passHash = BCrypt.Net.BCrypt.HashPassword(password);
-                createUser(username, passHash);
+                createUser(username, passHash,pin);
             }
         }
 
-        private void createUser(string username, string password_hash)
+        private void createUser(string username, string password_hash,string pin)
         {
             if (db.Login.SqlQuery("select * from login where username = '" + username + "'").Count() == 0)
             {
-                db.Login.Add(new Login { username = username, password_hash = password_hash });
+                db.Login.Add(new Login { username = username, password_hash = password_hash, pin = pin  });
                 try
                 {
                     db.SaveChanges();
