@@ -75,7 +75,6 @@
     <Compile Include="EditBuilding.xaml.cs">
       <DependentUpon>EditBuilding.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Api\pincodeApi.cs"/>
     <Compile Include="createAccount.xaml.cs">
       <DependentUpon>createAccount.xaml</DependentUpon>
     </Compile>

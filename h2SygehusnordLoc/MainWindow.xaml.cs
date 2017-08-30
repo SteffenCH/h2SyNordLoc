@@ -67,8 +67,8 @@ namespace h2SygehusnordLoc
 
         private void login(int userId,string username, string pin)
         {
-            if (LoggedIn) {
-            LoggedInId = userId;
+            if (loggedIn) {
+            loggedInId = userId;
             winDashboard dashboard = new winDashboard();
             dashboard.Show();
             this.Hide();
