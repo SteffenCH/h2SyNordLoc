@@ -66,59 +66,59 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Windows\CreateDepartment.xaml.cs">
+    <Compile Include="CreateDepartment.xaml.cs">
       <DependentUpon>CreateDepartment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AddBuilding.xaml.cs">
+    <Compile Include="AddBuilding.xaml.cs">
       <DependentUpon>AddBuilding.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\EditBuilding.xaml.cs">
+    <Compile Include="EditBuilding.xaml.cs">
       <DependentUpon>EditBuilding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Api\pincodeApi.cs" />
-    <Compile Include="Windows\createAccount.xaml.cs">
+    <Compile Include="createAccount.xaml.cs">
       <DependentUpon>createAccount.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\DepartmentWindow.xaml.cs">
+    <Compile Include="DepartmentWindow.xaml.cs">
       <DependentUpon>DepartmentWindow.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\EditDepartment.xaml.cs">
+    <Compile Include="EditDepartment.xaml.cs">
       <DependentUpon>EditDepartment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\InformationBuilding.xaml.cs">
+    <Compile Include="InformationBuilding.xaml.cs">
       <DependentUpon>InformationBuilding.xaml</DependentUpon>
     </Compile>
     <Compile Include="ModelClasses\Login.cs" />
     <Compile Include="ModelClasses\Room.cs" />
     <Compile Include="ModelClasses\Security.cs" />
-    <Compile Include="Windows\winDashboard.xaml.cs">
+    <Compile Include="winDashboard.xaml.cs">
       <DependentUpon>winDashboard.xaml</DependentUpon>
     </Compile>
-    <Page Include="Windows\CreateDepartment.xaml">
+    <Page Include="CreateDepartment.xaml">
     </Page>
-    <Page Include="Windows\AddBuilding.xaml">
+    <Page Include="AddBuilding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\EditBuilding.xaml">
+    <Page Include="EditBuilding.xaml">
     </Page>
-    <Page Include="Windows\createAccount.xaml">
+    <Page Include="createAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\DepartmentWindow.xaml">
+    <Page Include="DepartmentWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\EditDepartment.xaml">
+    <Page Include="EditDepartment.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\InformationBuilding.xaml">
+    <Page Include="InformationBuilding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\MainWindow.xaml">
+    <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -133,11 +133,11 @@
     <Compile Include="ModelClasses\Hall.cs" />
     <Compile Include="ModelClasses\Maintenance.cs" />
     <Compile Include="ModelClasses\MaintenanceType.cs" />
-    <Compile Include="Windows\MainWindow.xaml.cs">
+    <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Windows\winDashboard.xaml">
+    <Page Include="winDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
