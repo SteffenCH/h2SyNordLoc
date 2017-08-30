@@ -66,13 +66,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateDepartment.xaml.cs">
+      <DependentUpon>CreateDepartment.xaml</DependentUpon>
+    </Compile>
     <Compile Include="AddBuilding.xaml.cs">
       <DependentUpon>AddBuilding.xaml</DependentUpon>
     </Compile>
     <Compile Include="EditBuilding.xaml.cs">
       <DependentUpon>EditBuilding.xaml</DependentUpon>
-  </Compile>
-    <Compile Include="Api\pincodeApi.cs" />
+    </Compile>
     <Compile Include="createAccount.xaml.cs">
       <DependentUpon>createAccount.xaml</DependentUpon>
     </Compile>
@@ -88,9 +90,14 @@
     <Compile Include="ModelClasses\Login.cs" />
     <Compile Include="ModelClasses\Room.cs" />
     <Compile Include="ModelClasses\Security.cs" />
+    <Compile Include="pinVerify.xaml.cs">
+      <DependentUpon>pinVerify.xaml</DependentUpon>
+    </Compile>
     <Compile Include="winDashboard.xaml.cs">
       <DependentUpon>winDashboard.xaml</DependentUpon>
     </Compile>
+    <Page Include="CreateDepartment.xaml">
+    </Page>
     <Page Include="AddBuilding.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -132,6 +139,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="pinVerify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="winDashboard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
