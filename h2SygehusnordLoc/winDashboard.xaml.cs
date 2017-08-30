@@ -30,7 +30,11 @@ namespace h2SygehusnordLoc
 
         private void btnBuilding_Click(object sender, RoutedEventArgs e)
         {
-            ib.ShowDialog();
+            MainWindow.pinVerify.Show();
+            if (MainWindow.pinVerify.verify())
+                ib.ShowDialog();
+            else
+                MessageBox.Show("Ayy lmao");
         }
 
         private void btnDepartment_Click(object sender, RoutedEventArgs e)
