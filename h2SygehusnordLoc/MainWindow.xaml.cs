@@ -67,11 +67,11 @@ namespace h2SygehusnordLoc
 
         private void login(int userId,string username, string pin)
         {
-            if (loggedIn) {
-            loggedInId = userId;
-            winDashboard dashborard = new winDashboard();
-            dashborard.Show();
-            this.Close();
+            if (LoggedIn) {
+            LoggedInId = userId;
+            winDashboard dashboard = new winDashboard();
+            dashboard.Show();
+            this.Hide();
             }
         }
 
@@ -86,6 +86,10 @@ namespace h2SygehusnordLoc
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             sanitizeUserInput();
+        }
+        protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

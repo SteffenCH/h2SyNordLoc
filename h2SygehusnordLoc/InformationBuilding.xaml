@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
-        Title="Oplysninger om bygninger" Height="424.229" Width="457.268">
-    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,2,-5">
-        <DockPanel Height="147" LastChildFill="False" Margin="16,206,-6,-23" VerticalAlignment="Top" HorizontalAlignment="Left" Width="394">
-            <DataGrid x:Name="dataGridBuilding" Height="128" VerticalAlignment="Top" Width="390" AutoGenerateColumns="False" ItemsSource="{Binding Building}">
+        Title="Oplysninger om bygninger" Height="335.729" Width="493.268">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,2,-31">
+        <DockPanel Height="146" LastChildFill="False" Margin="18,95,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="455">
+            <DataGrid x:Name="dataGridBuilding" Height="128" VerticalAlignment="Top" Width="441" AutoGenerateColumns="False" ItemsSource="{Binding Building, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow" MouseDoubleClick="dataGridBuilding_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="Adresse" Binding="{Binding address}"/>
@@ -16,33 +16,46 @@
                     <DataGridTextColumn Header="Postnr" Binding="{Binding zipcode}"/>
                     <DataGridTextColumn Header="Rumnr" Binding="{Binding room_count}"/>
                     <DataGridTextColumn Header="Oprettet" Binding="{Binding created_at}"/>
+                    <DataGridTemplateColumn Header="Slet" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btnDelete" Content="{Binding ID}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Click="btnDelete_Click" />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="16,172,0,0" VerticalAlignment="Top" Width="386">
-            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="339" DockPanel.Dock="Right" KeyDown="tbSearch_KeyDown"/>
-            <Label x:Name="lbSearch" Content="Søg:" HorizontalAlignment="Left" VerticalAlignment="Top" DockPanel.Dock="Right" Width="52"/>
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="18,61,0,0" VerticalAlignment="Top" Width="438">
+            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" DockPanel.Dock="Right" KeyUp="tbSearch_KeyUp">
+                <TextBox.Style>
+                    <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                        <Style.Resources>
+                            <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                <VisualBrush.Visual>
+                                    <Label Content="Søg (f.eks. bygningens adresse, by, postnr)" Foreground="LightGray" />
+                                </VisualBrush.Visual>
+                            </VisualBrush>
+                        </Style.Resources>
+                        <Style.Triggers>
+                            <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                            </Trigger>
+                            <Trigger Property="Text" Value="{x:Null}">
+                                <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsKeyboardFocused" Value="True">
+                                <Setter Property="Background" Value="White"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </TextBox.Style>
+            </TextBox>
+            <Button x:Name="btnAdd" Content="Opret bygning" Width="89" Height="23" Click="btnAdd_Click"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="29" LastChildFill="False" Margin="95,138,0,0" VerticalAlignment="Top" Width="307">
-            <Button x:Name="btnSave" TabIndex="4" Margin="0, 0, 10, 0" Content="Gem" Height="23" VerticalAlignment="Top" Width="69" Click="btnSave_Click"/>
-            <Button x:Name="btnAdd" TabIndex="5" Margin="0, 0, 10, 0" Content="Opret" Height="23" VerticalAlignment="Top" Width="69"/>
-            <Button x:Name="btnReset" TabIndex="6" Margin="0, 0, 10, 0" Content="Nulstil" Height="23" VerticalAlignment="Top" Width="69"/>
-            <Button x:Name="btnDelete" TabIndex="7" Content="Slet" Height="23" VerticalAlignment="Top" Width="69"/>
+        <DockPanel HorizontalAlignment="Left" Height="31" LastChildFill="False" Margin="378,241,0,0" VerticalAlignment="Top" Width="80">
+            <Button x:Name="btnClose" Content="Luk" Height="23" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5" Click="btnClose_Click"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="27" LastChildFill="False" Margin="10,0,0,0" VerticalAlignment="Top" Width="134">
-            <Label x:Name="lblData" Content="Data:" Height="26" VerticalAlignment="Top" Width="133" FontWeight="Bold"/>
-        </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="50" LastChildFill="False" Margin="16,37,-5,0" VerticalAlignment="Top" Width="393">
-            <Label x:Name="lblAddress" Content="Adresse:" Height="23" VerticalAlignment="Top" Width="58"/>
-            <TextBox x:Name="tbAddress" TabIndex="0" TextWrapping="Wrap" Text="" Width="143" Height="46" VerticalAlignment="Top" Margin="0,0,0,-21"/>
-            <Label x:Name="lblCity" Content="By:" Margin="10, 0, 0, 0" Height="25" VerticalAlignment="Top"/>
-            <TextBox x:Name="tbCity" TabIndex="1" Margin="12, 0, 0, 0" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="142"/>
-        </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="26" LastChildFill="False" Margin="16,92,-5,0" VerticalAlignment="Top" Width="393">
-            <Label x:Name="lblZipCode" Content="Postnr:" Height="23" VerticalAlignment="Top"/>
-            <TextBox x:Name="tbZipCode" TabIndex="2" Margin="12, 0, 0, 0" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
-            <Label x:Name="lblRoomCount" Margin="10, 0, 0, 0" Content="Rum:" Height="26" VerticalAlignment="Top"/>
-            <TextBox x:Name="tbRoomCount" TabIndex="3" Height="23" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="143"/>
-        </DockPanel>
+        <Label x:Name="lblName" Content="Bygninger" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
     </Grid>
 </Window>

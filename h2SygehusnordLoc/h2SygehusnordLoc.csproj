@@ -66,6 +66,16 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="CreateDepartment.xaml.cs">
+      <DependentUpon>CreateDepartment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AddBuilding.xaml.cs">
+      <DependentUpon>AddBuilding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="EditBuilding.xaml.cs">
+      <DependentUpon>EditBuilding.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Api\pincodeApi.cs"/>
     <Compile Include="createAccount.xaml.cs">
       <DependentUpon>createAccount.xaml</DependentUpon>
     </Compile>
@@ -87,6 +97,14 @@
     <Compile Include="winDashboard.xaml.cs">
       <DependentUpon>winDashboard.xaml</DependentUpon>
     </Compile>
+    <Page Include="CreateDepartment.xaml">
+    </Page>
+    <Page Include="AddBuilding.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="EditBuilding.xaml">
+    </Page>
     <Page Include="createAccount.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
