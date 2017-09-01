@@ -5,8 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:h2SygehusnordLoc.Windows"
         mc:Ignorable="d"
-        Title="CreateRoom" Height="300" Width="300">
-    <Grid>
-        
+        Title="CreateRoom" Height="230.597" Width="300">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <TextBlock HorizontalAlignment="Left" Margin="10,30,0,0" TextWrapping="Wrap" Text="Gang ID:" VerticalAlignment="Top" IsEnabled="False"/>
+        <TextBox x:Name="tbHallID" HorizontalAlignment="Left" Height="23" Margin="114,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="162" IsEnabled="True" TabIndex="0"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,70,0,0" TextWrapping="Wrap" Text="Ledig/IkkeLedig" VerticalAlignment="Top" IsEnabled="True"/>
+        <CheckBox x:Name="cbOccupied" HorizontalAlignment="Left" Margin="114,70,0,0" VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="10,110,0,0" TextWrapping="Wrap" Text="Oprettet" VerticalAlignment="Top" IsEnabled="True"/>
+        <DatePicker x:Name="dpCreatedAt" HorizontalAlignment="Left" Margin="114,110,0,0" VerticalAlignment="Top" Width="162"/>
+
+        <Button x:Name="btnCreate" Content="Opret" HorizontalAlignment="Left" Margin="114,150,0,0" VerticalAlignment="Top" Width="75" Height="29" Click="btnCreate_Click"/>
+        <Button x:Name="btnCancel" Content="Annuller" HorizontalAlignment="Left" Margin="201,150,0,0" VerticalAlignment="Top" Width="75" Height="29" RenderTransformOrigin="0.556,-0.526" Click="btnCancel_Click"/>
     </Grid>
 </Window>

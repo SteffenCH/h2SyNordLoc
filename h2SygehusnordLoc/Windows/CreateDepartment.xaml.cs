@@ -43,8 +43,13 @@ namespace h2SygehusnordLoc
 
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            db.Department.Add(new Department { hall_ID = Convert.ToInt32(tbHallID.Text), building_ID = Convert.ToInt32(tbBuildingID.Text),
-                department_name = tbDepartmentName.Text, created_at = Convert.ToDateTime(dpCreatedAt.Text) });
+            db.Department.Add(new Department
+            {
+                hall_ID = Convert.ToInt32(tbHallID.Text),
+                building_ID = Convert.ToInt32(tbBuildingID.Text),
+                department_name = tbDepartmentName.Text,
+                created_at = Convert.ToDateTime(dpCreatedAt.Text)
+            });
 
             UpdateDB();
 

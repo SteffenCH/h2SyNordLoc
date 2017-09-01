@@ -29,6 +29,36 @@ namespace h2SygehusnordLoc.Windows
             this.room = room;
 
             InitializeComponent();
+
+            tbHallID.Text = room.hall_ID.ToString();
+            cbOccupied.IsChecked = room.occupied;
+            dpCreatedAt.Text = room.created_at.ToString();
+        }
+
+        private void UpdateDB()
+        {
+            this.db.SaveChanges();
+
+            if (this.closeEvent != null)
+            {
+                this.closeEvent(this, EventArgs.Empty);
+            }
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            room.hall_ID = Convert.ToInt32(tbHallID.Text);
+            room.occupied = cbOccupied.IsChecked.Value;
+            room.created_at = Convert.ToDateTime(dpCreatedAt.Text);
+
+            UpdateDB();
+
+            Close();
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
         }
     }
 }

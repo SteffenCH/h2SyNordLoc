@@ -19,9 +19,42 @@ namespace h2SygehusnordLoc.Windows
     /// </summary>
     public partial class CreateRoom : Window
     {
+
+        private databaseContext db = new databaseContext();
+        public event EventHandler closeEvent;
+
         public CreateRoom()
         {
             InitializeComponent();
+        }
+
+        private void UpdateDB()
+        {
+            this.db.SaveChanges();
+
+            if (this.closeEvent != null)
+            {
+                this.closeEvent(this, EventArgs.Empty);
+            }
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        {
+            db.Room.Add(new Room
+            {
+                hall_ID = Convert.ToInt32(tbHallID.Text),
+                occupied = cbOccupied.IsChecked.Value,
+                created_at = Convert.ToDateTime(dpCreatedAt.Text)
+            });
+
+            UpdateDB();
+
+            Close();
         }
     }
 }
