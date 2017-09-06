@@ -21,6 +21,7 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class InformationBuilding : Window
     {
+        public event EventHandler closeEvent;
         private databaseContext db = new databaseContext();
         List<Building> buildingList = new List<Building>();
 
@@ -62,12 +63,12 @@ namespace h2SygehusnordLoc
             Close();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
+        /*private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
             AddBuilding addBuilding = new AddBuilding();
             addBuilding.ShowDialog();
             UpdateDataGrid(this, EventArgs.Empty);
-        }
+        }*/
 
         private void tbSearch_KeyUp(object sender, KeyEventArgs e)
         {
@@ -154,6 +155,39 @@ namespace h2SygehusnordLoc
             {
                 MessageBox.Show("Data er slettet!", "Slet", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void Updatedb()
+        {
+            this.db.SaveChanges();
+
+            /*if (this.closeEvent != null)
+            {
+                this.closeEvent(this, EventArgs.Empty);
+            }*/
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            db.Building.Add(new Building { address = tbAddress.Text, city = tbCity.Text, zipcode = tbZipcode.Text, room_count = Convert.ToInt32(tbRoom_count.Text), created_at = Convert.ToDateTime(dpCreated_at.Text) });
+            MessageBox.Show("Data er blevet opdateret!", "Opdateret", MessageBoxButton.OK, MessageBoxImage.Information);
+            Updatedb();
+            tbAddress.Text = null;
+            tbCity.Text = null;
+            tbZipcode.Text = null;
+            tbRoom_count.Text = null;
+            dpCreated_at.Text = null;
+            dataGridBuilding.ItemsSource = buildingList;
+
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            tbAddress.Text = null;
+            tbCity.Text = null;
+            tbZipcode.Text = null;
+            tbRoom_count.Text = null;
+            dpCreated_at.Text = null;
         }
     }
 }

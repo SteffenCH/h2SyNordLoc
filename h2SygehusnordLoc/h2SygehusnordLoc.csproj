@@ -69,11 +69,11 @@
     <Compile Include="Windows\AddHall.xaml.cs">
       <DependentUpon>AddHall.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\ConsumptionWindow.xaml.cs">
+      <DependentUpon>ConsumptionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CreateDepartment.xaml.cs">
       <DependentUpon>CreateDepartment.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Windows\AddBuilding.xaml.cs">
-      <DependentUpon>AddBuilding.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditBuilding.xaml.cs">
       <DependentUpon>EditBuilding.xaml</DependentUpon>
@@ -109,11 +109,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Windows\CreateDepartment.xaml">
-    </Page>
-    <Page Include="Windows\AddBuilding.xaml">
+    <Page Include="Windows\ConsumptionWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\CreateDepartment.xaml">
     </Page>
     <Page Include="Windows\EditBuilding.xaml">
     </Page>

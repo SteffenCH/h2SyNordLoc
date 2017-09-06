@@ -23,7 +23,7 @@ namespace h2SygehusnordLoc.Windows
         databaseContext db = new databaseContext();
         public event EventHandler closeEvent;
 
-        public EditHall()
+        public EditHall(databaseContext db, Hall hall)
         {
             InitializeComponent();
 

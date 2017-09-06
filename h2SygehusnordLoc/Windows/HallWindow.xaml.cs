@@ -37,8 +37,8 @@ namespace h2SygehusnordLoc.Windows
 
         private void btnAdd_Click(object sender, RoutedEventArgs e)
         {
-            AddBuilding addBuilding = new AddBuilding();
-            addBuilding.ShowDialog();
+            AddHall addHall = new AddHall();
+            addHall.ShowDialog();
             UpdateDataGrid(this, EventArgs.Empty);
         }
 
@@ -72,16 +72,16 @@ namespace h2SygehusnordLoc.Windows
             dataGridHall.ItemsSource = hallList;
         }
 
-        private void dataGridBuilding_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void dataGridHall_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
-            Building building = ((FrameworkElement)e.OriginalSource).DataContext as Building;
+            Hall hall = ((FrameworkElement)e.OriginalSource).DataContext as Hall;
 
-            if (building != null)
+            if (hall != null)
             {
 
-                EditBuilding editBuilding = new EditBuilding(db, building);
-                editBuilding.closeEvent += new EventHandler(UpdateDataGrid);
-                editBuilding.ShowDialog();
+                EditHall editHall = new EditHall(db, hall);
+                editHall.closeEvent += new EventHandler(UpdateDataGrid);
+                editHall.ShowDialog();
             }
         }
 
