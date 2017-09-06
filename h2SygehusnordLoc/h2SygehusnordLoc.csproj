@@ -66,11 +66,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Windows\ConsumptionWindow.xaml.cs">
+      <DependentUpon>ConsumptionWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\CreateDepartment.xaml.cs">
       <DependentUpon>CreateDepartment.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Windows\AddBuilding.xaml.cs">
-      <DependentUpon>AddBuilding.xaml</DependentUpon>
+    <Compile Include="Windows\CreateRoom.xaml.cs">
+      <DependentUpon>CreateRoom.xaml</DependentUpon>
     </Compile>
     <Compile Include="Windows\EditBuilding.xaml.cs">
       <DependentUpon>EditBuilding.xaml</DependentUpon>
@@ -84,6 +87,15 @@
     <Compile Include="Windows\EditDepartment.xaml.cs">
       <DependentUpon>EditDepartment.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\EditHall.xaml.cs">
+      <DependentUpon>EditHall.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\HallWindow.xaml.cs">
+      <DependentUpon>HallWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\EditRoom.xaml.cs">
+      <DependentUpon>EditRoom.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\InformationBuilding.xaml.cs">
       <DependentUpon>InformationBuilding.xaml</DependentUpon>
     </Compile>
@@ -93,12 +105,19 @@
     <Compile Include="Windows\pinVerify.xaml.cs">
       <DependentUpon>pinVerify.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Windows\RoomWindow.xaml.cs">
+      <DependentUpon>RoomWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Windows\winDashboard.xaml.cs">
       <DependentUpon>winDashboard.xaml</DependentUpon>
     </Compile>
+    <Page Include="Windows\ConsumptionWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Windows\CreateDepartment.xaml">
     </Page>
-    <Page Include="Windows\AddBuilding.xaml">
+    <Page Include="Windows\CreateRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -113,6 +132,16 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Windows\EditDepartment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\EditHall.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\HallWindow.xaml">
+    </Page>
+    <Page Include="Windows\EditRoom.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -140,6 +169,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Windows\pinVerify.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\RoomWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

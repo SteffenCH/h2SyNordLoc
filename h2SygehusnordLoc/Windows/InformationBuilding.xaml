@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:h2SygehusnordLoc"
         mc:Ignorable="d"
-        Title="Oplysninger om bygninger" Height="335.729" Width="493.268">
+        Title="Oplysninger om bygninger" Height="507.729" Width="523.268">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Margin="0,0,2,-31">
-        <DockPanel Height="146" LastChildFill="False" Margin="18,95,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="455">
-            <DataGrid x:Name="dataGridBuilding" Height="128" VerticalAlignment="Top" Width="441" AutoGenerateColumns="False" ItemsSource="{Binding Building, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow" MouseDoubleClick="dataGridBuilding_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DockPanel Height="146" LastChildFill="False" Margin="30,266,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="455">
+            <DataGrid x:Name="dataGridBuilding" AlternatingRowBackground="Gainsboro" Height="128" VerticalAlignment="Top" Width="441" AutoGenerateColumns="False" ItemsSource="{Binding Building, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow" MouseDoubleClick="dataGridBuilding_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="Adresse" Binding="{Binding address}"/>
@@ -26,8 +26,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="18,61,0,0" VerticalAlignment="Top" Width="438">
-            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" DockPanel.Dock="Right" KeyUp="tbSearch_KeyUp">
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="30,232,0,0" VerticalAlignment="Top" Width="438">
+            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" DockPanel.Dock="Left" KeyUp="tbSearch_KeyUp">
                 <TextBox.Style>
                     <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
                         <Style.Resources>
@@ -51,11 +51,38 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            <Button x:Name="btnAdd" Content="Opret bygning" Width="89" Height="23" Click="btnAdd_Click"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="31" LastChildFill="False" Margin="378,241,0,0" VerticalAlignment="Top" Width="80">
+        <DockPanel HorizontalAlignment="Left" Height="31" LastChildFill="False" Margin="390,412,0,0" VerticalAlignment="Top" Width="80">
             <Button x:Name="btnClose" Content="Luk" Height="23" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5" Click="btnClose_Click"/>
         </DockPanel>
         <Label x:Name="lblName" Content="Bygninger" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <DockPanel HorizontalAlignment="Left" Height="23" LastChildFill="False" Margin="23,48,0,0" VerticalAlignment="Top" Width="272">
+            <Label x:Name="lblID" Content="ID:" Height="25" VerticalAlignment="Top" Width="65" Margin="0,0,0,-2"/>
+            <TextBox x:Name="tbID" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" IsEnabled="False"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="53" LastChildFill="False" Margin="23,76,0,0" VerticalAlignment="Top" Width="247">
+            <Label x:Name="lblAddress" Content="Adresse:" Height="23" VerticalAlignment="Top" Width="66"/>
+            <TextBox x:Name="tbAddress" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" TabIndex="0"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="23,127,0,0" VerticalAlignment="Top" Width="232">
+            <Label x:Name="lblCity" Content="By:" Height="28" VerticalAlignment="Top" Width="66"/>
+            <TextBox x:Name="tbCity" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" TabIndex="1"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="23,156,0,0" VerticalAlignment="Top" Width="221">
+            <Label x:Name="lblZipcode" Content="Postnr:" Height="28" VerticalAlignment="Top" Width="65"/>
+            <TextBox x:Name="tbZipcode" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" TabIndex="2"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="27" LastChildFill="False" Margin="253,48,0,0" VerticalAlignment="Top" Width="221">
+            <Label x:Name="lblRoom_count" Content="Rum nr:" Height="27" VerticalAlignment="Top" Width="65"/>
+            <TextBox x:Name="tbRoom_count" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="156" TabIndex="3"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="61" LastChildFill="False" Margin="253,78,0,0" VerticalAlignment="Top" Width="221">
+            <Label x:Name="lblCreated_at" Content="Oprettet:" Height="61" VerticalAlignment="Top" Width="65"/>
+            <DatePicker x:Name="dpCreated_at" Height="61" VerticalAlignment="Top" Width="156" TabIndex="4"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="25" LastChildFill="False" Margin="318,157,0,0" VerticalAlignment="Top" Width="156">
+            <Button x:Name="btnSave" TabIndex="5" Content="Gem" Margin="0, 0, 5, 0" Height="23" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+            <Button x:Name="btnCancel" TabIndex="6" Content="Annuller" Width="75" Margin="0,0,0,2" Click="btnCancel_Click"/>
+        </DockPanel>
     </Grid>
 </Window>

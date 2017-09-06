@@ -1,0 +1,61 @@
+﻿<Window x:Class="h2SygehusnordLoc.Windows.RoomWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:h2SygehusnordLoc.Windows"
+        mc:Ignorable="d"
+        Title="Stuen" Height="400" Width="518.299" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+    <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        <DataGrid x:Name="datagridRoom" HorizontalAlignment="Center" Height="309" Margin="10,51,0,10.4" VerticalAlignment="Center" Width="502" IsReadOnly="True" 
+                  ItemsSource="{Binding Room}" SelectionMode="Extended" SelectionUnit="FullRow" CanUserSortColumns="True"
+                  CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False"
+                  AlternatingRowBackground="Gainsboro" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible"
+                  AlternationCount="2" HeadersVisibility="All" EnableRowVirtualization="False" AutoGenerateColumns="False" MouseDoubleClick="datagridRoom_MouseDoubleClick">
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Width="50" Header="ID" Binding="{Binding ID}"></DataGridTextColumn>
+                <DataGridTextColumn Header="Gang ID" Binding="{Binding hall_ID}"></DataGridTextColumn>
+                <DataGridCheckBoxColumn Header="Ledig/Ikke Ledig" Binding="{Binding occupied}"></DataGridCheckBoxColumn>
+                <DataGridTextColumn Width="150" Header="Oprettet" Binding="{Binding created_at}"></DataGridTextColumn>
+                <DataGridTemplateColumn Header="Slet" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="btnDeleteRoom" Content="{Binding ID}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="50" Click="btnDeleteRoom_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+
+        </DataGrid>
+
+        <Button Name="btnCreateRoom" Content="Opret stue" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="100" Height="36" Click="btnCreateRoom_Click"/>
+
+        <TextBox x:Name="tbSearchBox" HorizontalAlignment="Left" Height="36" Margin="126,10,0,0" TextWrapping="Wrap" MaxLines="1" FontSize="24" VerticalAlignment="Top" Width="217" KeyUp="tbSearchBox_KeyUp">
+            <TextBox.Style>
+                <Style TargetType="TextBox" xmlns:sys="clr-namespace:System;assembly=mscorlib">
+                    <Style.Resources>
+                        <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                            <VisualBrush.Visual>
+                                <Label Content="Søg (f.eks. ID)" Foreground="LightGray" />
+                            </VisualBrush.Visual>
+                        </VisualBrush>
+                    </Style.Resources>
+                    <Style.Triggers>
+                        <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="White" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <Button x:Name="btnExit" Content="Luk" HorizontalAlignment="Left" Margin="384,10,0,0" VerticalAlignment="Top" Width="100" Height="36" Click="btnExit_Click"/>
+
+    </Grid>
+</Window>
