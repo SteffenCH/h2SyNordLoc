@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:h2SygehusnordLoc.Windows"
         mc:Ignorable="d"
-        Title="Stuen" Height="400" Width="578" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
+        Title="Stuen" Height="400" Width="518.299" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-        <DataGrid x:Name="datagridRoom" HorizontalAlignment="Center" Height="309" Margin="12,51,10.2,10.4" VerticalAlignment="Center" Width="549" IsReadOnly="True" 
+        <DataGrid x:Name="datagridRoom" HorizontalAlignment="Center" Height="309" Margin="10,51,0,10.4" VerticalAlignment="Center" Width="502" IsReadOnly="True" 
                   ItemsSource="{Binding Room}" SelectionMode="Extended" SelectionUnit="FullRow" CanUserSortColumns="True"
                   CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserAddRows="False" CanUserDeleteRows="False"
                   AlternatingRowBackground="Gainsboro" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Visible"

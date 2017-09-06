@@ -31,7 +31,7 @@ namespace h2SygehusnordLoc.Windows
             InitializeComponent();
 
             tbHallID.Text = room.hall_ID.ToString();
-            cbOccupied.IsChecked = room.occupied;
+            cbOccupied.IsChecked = room.occupied.Value;
             dpCreatedAt.Text = room.created_at.ToString();
         }
 
