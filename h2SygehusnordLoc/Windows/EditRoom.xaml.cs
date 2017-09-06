@@ -12,23 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace h2SygehusnordLoc
+namespace h2SygehusnordLoc.Windows
 {
     /// <summary>
-    /// Interaction logic for CreateDepartment.xaml
+    /// Interaction logic for EditRoom.xaml
     /// </summary>
-    public partial class CreateDepartment : Window
+    public partial class EditRoom : Window
     {
         private databaseContext db = new databaseContext();
+        private Room room;
         public event EventHandler closeEvent;
 
-        public CreateDepartment()
+        public EditRoom(databaseContext db, Room room)
         {
-          
+            this.db = db;
+            this.room = room;
+
             InitializeComponent();
 
-
-
+            tbHallID.Text = room.hall_ID.ToString();
+            cbOccupied.IsChecked = room.occupied.Value;
+            dpCreatedAt.Text = room.created_at.ToString();
         }
 
         private void UpdateDB()
@@ -41,15 +45,11 @@ namespace h2SygehusnordLoc
             }
         }
 
-        private void btnCreate_Click(object sender, RoutedEventArgs e)
+        private void btnSave_Click(object sender, RoutedEventArgs e)
         {
-            db.Department.Add(new Department
-            {
-                hall_ID = Convert.ToInt32(tbHallID.Text),
-                building_ID = Convert.ToInt32(tbBuildingID.Text),
-                department_name = tbDepartmentName.Text,
-                created_at = Convert.ToDateTime(dpCreatedAt.Text)
-            });
+            room.hall_ID = Convert.ToInt32(tbHallID.Text);
+            room.occupied = cbOccupied.IsChecked.Value;
+            room.created_at = Convert.ToDateTime(dpCreatedAt.Text);
 
             UpdateDB();
 
@@ -58,7 +58,7 @@ namespace h2SygehusnordLoc
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            Hide();
         }
     }
 }

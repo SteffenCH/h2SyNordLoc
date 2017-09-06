@@ -12,23 +12,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace h2SygehusnordLoc
+namespace h2SygehusnordLoc.Windows
 {
     /// <summary>
-    /// Interaction logic for CreateDepartment.xaml
+    /// Interaction logic for CreateRoom.xaml
     /// </summary>
-    public partial class CreateDepartment : Window
+    public partial class CreateRoom : Window
     {
+
         private databaseContext db = new databaseContext();
         public event EventHandler closeEvent;
 
-        public CreateDepartment()
+        public CreateRoom()
         {
-          
             InitializeComponent();
-
-
-
         }
 
         private void UpdateDB()
@@ -41,24 +38,23 @@ namespace h2SygehusnordLoc
             }
         }
 
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            Close();
+        }
+
         private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            db.Department.Add(new Department
+            db.Room.Add(new Room
             {
                 hall_ID = Convert.ToInt32(tbHallID.Text),
-                building_ID = Convert.ToInt32(tbBuildingID.Text),
-                department_name = tbDepartmentName.Text,
+                occupied = cbOccupied.IsChecked.Value,
                 created_at = Convert.ToDateTime(dpCreatedAt.Text)
             });
 
             UpdateDB();
 
             Close();
-        }
-
-        private void btnCancel_Click(object sender, RoutedEventArgs e)
-        {
-            this.Close();
         }
     }
 }
