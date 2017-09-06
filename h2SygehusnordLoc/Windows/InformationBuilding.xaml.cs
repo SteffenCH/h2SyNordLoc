@@ -21,7 +21,7 @@ namespace h2SygehusnordLoc
     /// </summary>
     public partial class InformationBuilding : Window
     {
-        public event EventHandler closeEvent;
+        //public event EventHandler closeEvent;
         private databaseContext db = new databaseContext();
         List<Building> buildingList = new List<Building>();
 

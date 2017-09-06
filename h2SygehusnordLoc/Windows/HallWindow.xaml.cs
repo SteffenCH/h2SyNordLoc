@@ -35,13 +35,6 @@ namespace h2SygehusnordLoc.Windows
             Close();
         }
 
-        private void btnAdd_Click(object sender, RoutedEventArgs e)
-        {
-            AddHall addHall = new AddHall();
-            addHall.ShowDialog();
-            UpdateDataGrid(this, EventArgs.Empty);
-        }
-
         private void tbSearch_KeyUp(object sender, KeyEventArgs e)
         {
             if (e.IsUp)
@@ -109,6 +102,29 @@ namespace h2SygehusnordLoc.Windows
             {
                 MessageBox.Show("Data er slettet!", "Slet", MessageBoxButton.OK, MessageBoxImage.Information);
             }
+        }
+
+        private void Updatedb()
+        {
+            this.db.SaveChanges();
+        }
+
+        private void btnSave_Click(object sender, RoutedEventArgs e)
+        {
+            db.Hall.Add(new Hall { ID = Convert.ToInt32(tbID.Text), consumption_ID = Convert.ToInt32(tbConsumption_ID.Text), department_ID = Convert.ToInt32(tbDepartment_ID.Text), created_at = Convert.ToDateTime(dpCreated_at.Text) });
+            MessageBox.Show("Data er blevet opdateret!", "Opdateret", MessageBoxButton.OK, MessageBoxImage.Information);
+            Updatedb();
+            tbConsumption_ID.Text = null;
+            tbDepartment_ID.Text = null;
+            dpCreated_at.Text = null;
+            dataGridHall.ItemsSource = hallList;
+        }
+
+        private void btnCancel_Click(object sender, RoutedEventArgs e)
+        {
+            tbConsumption_ID.Text = null;
+            tbDepartment_ID.Text = null;
+            dpCreated_at.Text = null;
         }
     }
 }

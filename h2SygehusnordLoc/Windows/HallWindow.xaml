@@ -5,10 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:h2SygehusnordLoc.Windows"
         mc:Ignorable="d"
-        Title="Oplysninger om gange" Height="315.789" Width="363.157">
+        Title="Oplysninger om gange" Height="442.427" Width="595.157">
     <Grid Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}">
-        <DockPanel Height="146" LastChildFill="False" Margin="18,95,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="328">
-            <DataGrid x:Name="dataGridHall" AlternatingRowBackground="Gainsboro" Height="128" VerticalAlignment="Top" Width="313" AutoGenerateColumns="False" ItemsSource="{Binding Hall, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow" MouseDoubleClick="dataGridHall_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False">
+        <DockPanel Height="146" LastChildFill="False" Margin="29,209,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="527">
+            <DataGrid x:Name="dataGridHall" AlternatingRowBackground="Gainsboro" Height="128" VerticalAlignment="Top" Width="515" AutoGenerateColumns="False" ItemsSource="{Binding Hall, Mode=OneWay, NotifyOnSourceUpdated=True, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding CurrentUser}" SelectionUnit="FullRow" MouseDoubleClick="dataGridHall_MouseDoubleClick" CanUserAddRows="False" CanUserDeleteRows="False">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="ID" Binding="{Binding ID}"/>
                     <DataGridTextColumn Header="Forbrug ID" Binding="{Binding consumption_ID}"/>
@@ -24,8 +24,8 @@
                 </DataGrid.Columns>
             </DataGrid>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="18,61,0,0" VerticalAlignment="Top" Width="311">
-            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="191" DockPanel.Dock="Right" KeyUp="tbSearch_KeyUp">
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="29,175,0,0" VerticalAlignment="Top" Width="311">
+            <TextBox x:Name="tbSearch" TabIndex="7" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="261" DockPanel.Dock="Left" KeyUp="tbSearch_KeyUp">
                 <TextBox.Style>
                     <Style xmlns:sys="clr-namespace:System;assembly=mscorlib" TargetType="{x:Type TextBox}">
                         <Style.Resources>
@@ -49,12 +49,31 @@
                     </Style>
                 </TextBox.Style>
             </TextBox>
-            <Button x:Name="btnAdd" Content="Opret gang" Width="89" Height="23" Click="btnAdd_Click"/>
         </DockPanel>
-        <DockPanel HorizontalAlignment="Left" Height="31" LastChildFill="False" Margin="249,241,0,0" VerticalAlignment="Top" Width="80">
+        <DockPanel HorizontalAlignment="Left" Height="31" LastChildFill="False" Margin="466,355,0,0" VerticalAlignment="Top" Width="80">
             <Button x:Name="btnClose" Content="Luk" Height="23" VerticalAlignment="Top" Width="77" RenderTransformOrigin="0.5,0.5" Click="btnClose_Click"/>
         </DockPanel>
-        <Label x:Name="lblName" Content="Gange" HorizontalAlignment="Left" Margin="18,10,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+        <Label x:Name="lblName" Content="Gange" HorizontalAlignment="Left" Margin="20,10,0,0" VerticalAlignment="Top" FontWeight="Bold" RenderTransformOrigin="0.457,-0.654"/>
+        <DockPanel HorizontalAlignment="Left" Height="23" LastChildFill="False" Margin="27,39,0,0" VerticalAlignment="Top" Width="272">
+            <Label x:Name="lblID" Content="ID:" Height="25" VerticalAlignment="Top" Width="75" Margin="0,0,0,-2"/>
+            <TextBox x:Name="tbID" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" IsEnabled="False"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="53" LastChildFill="False" Margin="27,67,0,0" VerticalAlignment="Top" Width="263">
+            <Label x:Name="lblConsumption_ID" Content="Forbrug ID:" Height="29" VerticalAlignment="Top" Width="75"/>
+            <TextBox x:Name="tbConsumption_ID" Height="46" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" TabIndex="0"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="28" LastChildFill="False" Margin="27,120,0,0" VerticalAlignment="Top" Width="263">
+            <Label x:Name="lblDepartment_ID" Content="Afdeling ID:" Height="28" VerticalAlignment="Top" Width="75"/>
+            <TextBox x:Name="tbDepartment_ID" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="182" TabIndex="1"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="61" LastChildFill="False" Margin="300,41,0,0" VerticalAlignment="Top" Width="256">
+            <Label x:Name="lblCreated_at" Content="Oprettet:" Height="61" VerticalAlignment="Top" Width="75"/>
+            <DatePicker x:Name="dpCreated_at" Height="61" VerticalAlignment="Top" Width="159" TabIndex="4"/>
+        </DockPanel>
+        <DockPanel HorizontalAlignment="Left" Height="25" LastChildFill="False" Margin="379,119,0,0" VerticalAlignment="Top" Width="156">
+            <Button x:Name="btnSave" Content="Gem" Margin="0, 0, 5, 0" Height="23" VerticalAlignment="Top" Width="75" Click="btnSave_Click"/>
+            <Button x:Name="btnCancel" Content="Annuller" Width="75" Margin="0,0,0,2" Click="btnCancel_Click"/>
+        </DockPanel>
 
     </Grid>
 </Window>
