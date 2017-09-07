@@ -12,21 +12,23 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace h2SygehusnordLoc
+namespace h2SygehusnordLoc.Windows
 {
     /// <summary>
-    /// Interaction logic for AddBuilding.xaml
+    /// Interaction logic for CreateRoom.xaml
     /// </summary>
-    public partial class AddBuilding : Window
+    public partial class CreateRoom : Window
     {
+
+        private databaseContext db = new databaseContext();
         public event EventHandler closeEvent;
-        databaseContext db = new databaseContext();
-        public AddBuilding()
+
+        public CreateRoom()
         {
             InitializeComponent();
         }
 
-        private void Updatedb()
+        private void UpdateDB()
         {
             this.db.SaveChanges();
 
@@ -41,11 +43,17 @@ namespace h2SygehusnordLoc
             Close();
         }
 
-        private void btnSave_Click(object sender, RoutedEventArgs e)
+        private void btnCreate_Click(object sender, RoutedEventArgs e)
         {
-            db.Building.Add(new Building { address = tbAddress.Text, city = tbCity.Text, zipcode = tbZipcode.Text, room_count = Convert.ToInt32(tbRoom_count.Text), created_at = Convert.ToDateTime(dpCreated_at.Text) });
-            MessageBox.Show("Data er blevet opdateret!", "Opdateret", MessageBoxButton.OK, MessageBoxImage.Information);
-            Updatedb();
+            db.Room.Add(new Room
+            {
+                hall_ID = Convert.ToInt32(tbHallID.Text),
+                occupied = cbOccupied.IsChecked.Value,
+                created_at = Convert.ToDateTime(dpCreatedAt.Text)
+            });
+
+            UpdateDB();
+
             Close();
         }
     }
