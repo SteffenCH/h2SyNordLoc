@@ -69,6 +69,7 @@ namespace h2SygehusnordLoc
         {
             if (loggedIn) {
             loggedInId = userId;
+            loggedInPin = pin;
             winDashboard dashboard = new winDashboard();
             dashboard.Show();
             this.Hide();
