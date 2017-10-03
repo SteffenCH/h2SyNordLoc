@@ -22,28 +22,38 @@ namespace h2SygehusnordLoc
         public int pincode { get; private set; }
 
         public pinVerify()
-        {
+        { 
             InitializeComponent();
         }
 
-        public bool verify()
+        public void verify(Window test)
+        {
+            this.Show();
+            if(verifyPin())
+                test.Show();
+        }
+
+        private bool verifyPin()
         {
             string pin = MainWindow.loggedInPin;
             if (pin == pwPincode.Password)
                 return true;
             else
+            { 
+                MessageBox.Show("Forkert pinkode");
                 return false;
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            verify();
+            }
         }
 
         protected override void OnClosing(System.ComponentModel.CancelEventArgs e)
         {
             this.Visibility = Visibility.Hidden;
             e.Cancel = true;
+        }
+
+        private void btnVerify_Click(object sender, RoutedEventArgs e)
+        {
+            verifyPin();
         }
     }
 }
